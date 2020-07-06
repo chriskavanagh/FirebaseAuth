@@ -1,4 +1,4 @@
-import remove from "lodash.remove";
+//import remove from "lodash.remove";
 
 const initialState = [];
 
@@ -14,10 +14,8 @@ function notesReducer(state = initialState, action) {
       ];
 
     case "DELETE_NOTE":
-      const deletedNewArray = remove(state, (obj) => {
-        return obj.id != action.payload;
-      });
-      return deletedNewArray;
+      let newState = state.filter((item) => item.id !== action.payload);
+      return newState;
 
     default:
       return state;
@@ -33,5 +31,5 @@ export default notesReducer;
 /* case DELETE_NOTE:
         return [
             ...state,
-            state.filter(item => item.id !== action.id)
+            state.filter(item => item.id !== action.payload)
         ] */
