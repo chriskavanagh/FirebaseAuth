@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-import { FAB, TextInput, IconButton } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
+import { FAB, TextInput, IconButton } from "react-native-paper";
 
 function AddNotes({ navigation, route }) {
   const { addNote } = route.params;

@@ -1,9 +1,9 @@
 import React from "react";
 import AuthStack from "./AuthStack";
-import AddNotes from "../screens/AddNotes";
-import ViewNotes from "../screens/ViewNotes";
 import RootStack from "./RootStack";
+import FoodStack from "./FoodStack";
 import Icon from "react-native-vector-icons/Ionicons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
@@ -38,6 +38,17 @@ export default () => {
           tabBarLabel: "User",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-call" color={color} size={25} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Food"
+        component={FoodStack}
+        options={{
+          tabBarLabel: "Food",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="food" size={25} color="gray" />
           ),
         }}
       />

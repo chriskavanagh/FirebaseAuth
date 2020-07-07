@@ -1,7 +1,10 @@
 import { combineReducers } from "redux";
-//import foodReducer from "./foodReducer";
+import foodReducer from "./foodReducer";
 import notesReducer from "./notesReducer";
 
-export default combineReducers({
+const rootReducer = combineReducers({
   notesReducer,
+  foodReducer,
 });
+
+export default rootReducer;

@@ -73,7 +73,7 @@ const initialState = {
   total: +(0).toFixed(2),
 };
 
-export default (state = initialState, action) => {
+function foodReducer(state = initialState, action) {
   switch (action.type) {
     case "ADD_ITEM":
       let addedItem = Object.values(state.items)
@@ -146,4 +146,6 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-};
+}
+
+export default foodReducer;

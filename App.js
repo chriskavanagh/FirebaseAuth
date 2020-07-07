@@ -1,13 +1,13 @@
 import "react-native-gesture-handler";
-import React, { useEffect, useState } from "react";
-import { firebase } from "./src/firebase/config";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { Provider as PaperProvider } from "react-native-paper";
-import { Text, FAB } from "react-native-paper";
-import NoteStack from "./src/Routes/NoteStack";
 import store from "./src/redux/store";
+//import { Text, FAB } from "react-native-paper";
+import NoteStack from "./src/Routes/NoteStack";
+import { firebase } from "./src/firebase/config";
+import React, { useEffect, useState } from "react";
 import { Provider as StoreProvider } from "react-redux";
+import { NavigationContainer } from "@react-navigation/native";
+//import { createStackNavigator } from "@react-navigation/stack";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import { decode, encode } from "base-64";
 if (!global.btoa) {
   global.btoa = encode;
@@ -15,6 +15,16 @@ if (!global.btoa) {
 if (!global.atob) {
   global.atob = decode;
 }
+
+const theme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "#3498db",
+    accent: "#f1c40f",
+  },
+};
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -25,6 +35,7 @@ export default function App() {
     //console.log(usersRef);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        setUser(user.email);
         usersRef
           .doc(user.uid)
           .get()
@@ -47,7 +58,7 @@ export default function App() {
   }
   return (
     <StoreProvider store={store}>
-      <PaperProvider>
+      <PaperProvider theme={DefaultTheme}>
         <NavigationContainer>
           <NoteStack />
         </NavigationContainer>
