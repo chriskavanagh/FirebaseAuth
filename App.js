@@ -1,6 +1,5 @@
 import "react-native-gesture-handler";
 import store from "./src/redux/store";
-//import { Text, FAB } from "react-native-paper";
 import NoteStack from "./src/Routes/NoteStack";
 import { firebase } from "./src/firebase/config";
 import React, { useEffect, useState } from "react";

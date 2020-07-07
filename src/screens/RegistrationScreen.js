@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { firebase } from "../firebase/config";
 import {
   Image,
   Text,
@@ -8,7 +9,6 @@ import {
   StyleSheet,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { firebase } from "../firebase/config";
 
 export default function RegistrationScreen({ navigation }) {
   //const [fullName, setFullName] = useState("");
