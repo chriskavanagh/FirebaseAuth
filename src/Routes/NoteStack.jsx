@@ -48,7 +48,7 @@ export default () => {
         options={{
           tabBarLabel: "Food",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="food" size={25} color="gray" />
+            <Icon name="ios-restaurant" color={color} size={25} />
           ),
         }}
       />

@@ -6,6 +6,7 @@ import { TextInput, FAB } from "react-native-paper";
 export default function AddFood() {
   const [food, setFood] = useState("");
   const [foodPrice, setPrice] = useState("");
+  const [error, setError] = useState(null);
 
   // add food item to Cloud Firestore db in "Cart"
   // .add will give automatic id
@@ -15,26 +16,36 @@ export default function AddFood() {
       name: food,
       price: foodPrice,
     };
-    const db = firebase.firestore();
-    const cartRef = db.collection("cart");
-    const snapshot = await cartRef.add({
-      data,
-    });
+    try {
+      const db = firebase.firestore();
+      const cartRef = db.collection("cart");
+      const snapshot = await cartRef.add({
+        data,
+      });
+      setFood("");
+      setPrice("");
+    } catch (error) {
+      setError(error);
+      console.log(error);
+    }
   };
 
   return (
     <View style={styles.container}>
       <TextInput
-        label="Add Food"
+        label="Food"
         value={food}
         placeholder="Add Food Item"
         onChangeText={(food) => setFood(food)}
+        theme={{ colors: { text: "#0c0c0c" } }}
       />
       <TextInput
         label="Price"
+        keyboardType="numeric"
         value={foodPrice}
         placeholder="Add Food Price"
         onChangeText={(foodPrice) => setPrice(foodPrice)}
+        theme={{ colors: { text: "#0c0c0c" } }}
       />
 
       <FAB
@@ -42,7 +53,7 @@ export default function AddFood() {
         style={styles.fab}
         small
         icon="check"
-        // disabled={noteTitle == "" ? true : false}
+        disabled={food == "" || foodPrice == "" ? true : false}
         onPress={() => onSaveNote()}
       />
     </View>
@@ -56,5 +67,9 @@ const styles = StyleSheet.create({
   },
   fab: {
     color: "white",
+    marginTop: 10,
+  },
+  text: {
+    color: "red",
   },
 });
