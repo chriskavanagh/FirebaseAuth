@@ -10,7 +10,7 @@ function AddNotes({ navigation, route }) {
 
   const onSaveNote = () => {
     addNote({ noteTitle, noteValue });
-    navigation.navigate("ViewNotes");
+    navigation.navigate("View Notes");
   };
   return (
     <>

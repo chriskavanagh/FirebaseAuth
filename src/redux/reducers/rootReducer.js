@@ -1,10 +1,15 @@
 import { combineReducers } from "redux";
-import foodReducer from "./foodReducer";
+import menuReducer from "./menuReducer";
 import notesReducer from "./notesReducer";
+
+/* export default combineReducers({
+  notesReducer,
+  menuReducer,
+}); */
 
 const rootReducer = combineReducers({
   notesReducer,
-  foodReducer,
+  menuReducer,
 });
 
 export default rootReducer;

@@ -11,9 +11,9 @@ export default function AuthStack({ navigation }) {
     navigation.toggleDrawer();
   }; */
   return (
-    <Stack.Navigator initialRouteName="ViewNotes">
-      <Stack.Screen name="ViewNotes" component={ViewNotes} />
-      <Stack.Screen name="AddNotes" component={AddNotes} />
+    <Stack.Navigator initialRouteName="View Notes">
+      <Stack.Screen name="View Notes" component={ViewNotes} />
+      <Stack.Screen name="Add Notes" component={AddNotes} />
     </Stack.Navigator>
   );
 }

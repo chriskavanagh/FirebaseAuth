@@ -6,7 +6,7 @@ import { TextInput } from "react-native-paper";
 import { StyleSheet, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function AddFood() {
+function FormikAddFood() {
   const onSaveNote = async (food, price) => {
     const data = {
       name: food,
@@ -24,41 +24,34 @@ export default function AddFood() {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <Formik
         initialValues={{ food: "", price: "" }}
-        onSubmit={(values, actions) => {
-          console.log({ values, actions });
-          actions.resetForm();
+        onSubmit={(values) => {
           onSaveNote(values.food, values.price);
         }}
       >
         {(props) => (
           <View>
             <TextInput
-              style={styles.input}
               placeholder="Item Name"
               value={props.values.food}
               onChangeText={props.handleChange("food")}
             />
 
             <TextInput
-              style={styles.input}
               placeholder="Item Price"
               value={props.values.price}
               onChangeText={props.handleChange("price")}
             />
 
             <Button
-              icon={
-                <Icon
-                  name="arrow-right"
-                  size={18}
-                  color="white"
-                  style={{ marginRight: 5 }}
-                />
-              }
-              title="Add Food"
+              icon={{
+                name: "arrow-right",
+                size: 15,
+                color: "white",
+              }}
+              title="Add Your Food!"
               onPress={props.handleSubmit}
             />
           </View>
@@ -68,16 +61,4 @@ export default function AddFood() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    padding: 10,
-    fontSize: 18,
-    borderRadius: 6,
-  },
-});
+export default FormikAddFood;

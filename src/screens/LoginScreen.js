@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { firebase } from "../firebase/config";
 import {
   Image,
   Text,
@@ -8,7 +9,6 @@ import {
   StyleSheet,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { firebase } from "../firebase/config";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -134,47 +134,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-/* const onLoginPress = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        const uid = response.user.uid;
-        const usersRef = firebase.firestore().collection("users");
-        usersRef
-          .doc(uid)
-          .get()
-          .then((firestoreDocument) => {
-            if (!firestoreDocument.exists) {
-              alert("User does not exist anymore.");
-              return;
-            }
-            const user = firestoreDocument.data();
-            navigation.navigate("Home", { user: user });
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  }; */
-
-/* const onLoginPress = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        const user = response.user.uid;
-        console.log(user);
-      })
-      .then(() => {
-        const currentUser = firebase.auth().currentUser;
-        setPassword("");
-        navigation.navigate("Home", {
-          user: currentUser.email,
-        });
-      })
-      .catch((error) => console.log(error.message));
-  }; */

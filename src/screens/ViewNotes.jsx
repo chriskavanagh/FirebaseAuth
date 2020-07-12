@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import { Text, FAB, List } from "react-native-paper";
-import { StyleSheet, View, FlatList } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import { StyleSheet, View, FlatList } from "react-native";
 import { addnote, deletenote } from "../redux/actions/notesApp";
 
 function ViewNotes({ navigation }) {
   //const [notes, setNotes] = useState([]);
-  const notes = useSelector((state) => state);
+  const notes = useSelector((state) => state.notesReducer);
   console.log(notes);
   const dispatch = useDispatch();
   const addNote = (note) => dispatch(addnote(note));
@@ -46,7 +46,7 @@ function ViewNotes({ navigation }) {
           icon="plus"
           label="Add new note"
           onPress={() =>
-            navigation.navigate("AddNotes", {
+            navigation.navigate("Add Notes", {
               addNote,
             })
           }

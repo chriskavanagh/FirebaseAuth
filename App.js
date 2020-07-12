@@ -5,15 +5,19 @@ import { firebase } from "./src/firebase/config";
 import React, { useEffect, useState } from "react";
 import { Provider as StoreProvider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
-//import { createStackNavigator } from "@react-navigation/stack";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
-import { decode, encode } from "base-64";
-if (!global.btoa) {
-  global.btoa = encode;
-}
-if (!global.atob) {
-  global.atob = decode;
-}
+//import { createStore, applyMiddleware } from "redux";
+//import thunkMiddleware from "redux-thunk";
+//import rootReducer from "./src/redux/reducers/rootReducer";
+
+/* const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+function configureStore(initialState = {}) {
+  return createStore(
+    rootReducer,
+    initialState,
+    storeEnhancers(applyMiddleware(thunkMiddleware))
+  );
+} */
 
 const theme = {
   ...DefaultTheme,
