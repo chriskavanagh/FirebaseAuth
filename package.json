@@ -27,6 +27,7 @@
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
     "react-native-elements": "^2.0.4",
+    "react-native-extended-stylesheet": "^0.12.0",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-paper": "^3.10.1",
@@ -39,6 +40,7 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "yup": "^0.29.1"
   },
   "devDependencies": {

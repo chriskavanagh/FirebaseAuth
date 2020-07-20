@@ -50,6 +50,7 @@ export default function AddFood() {
             />
 
             <Button
+              style={styles.btn}
               icon={
                 <Icon
                   name="arrow-right"
@@ -80,4 +81,23 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 6,
   },
+  btn: {
+    marginTop: 9,
+  },
 });
+
+/* const onSaveNote = async (food, price) => {
+  const data = {
+    name: food,
+    price: price,
+  };
+  try {
+    const db = firebase.firestore();
+    const cartRef = db.collection("cart");
+    const snapshot = await cartRef.add({
+      data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}; */
