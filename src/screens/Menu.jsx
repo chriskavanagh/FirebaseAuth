@@ -4,14 +4,15 @@ import { Button } from "react-native-elements";
 import { soupSelector, allSelector } from "../redux/selectors";
 import { useSelector, useDispatch } from "react-redux";
 //import { getMenu } from "../redux/actions/menuActions";
+import FilterLink from "../components/FilterLink";
+import { StyleSheet, View, FlatList } from "react-native";
 import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
-import { filterSoup, filterBeef } from "../redux/actions/menuActions";
+  filterSoup,
+  filterBeef,
+  filterChef,
+  filterPork,
+  filterVegetable,
+} from "../redux/actions/menuActions";
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
@@ -23,7 +24,23 @@ export default function Menu({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Menu</Text>
+      <View style={styles.subContainer}>
+        <FilterLink action={filterSoup} dispatch={dispatch}>
+          Soup
+        </FilterLink>
+
+        <FilterLink action={filterBeef} dispatch={dispatch}>
+          Beef
+        </FilterLink>
+
+        <FilterLink action={filterVegetable} dispatch={dispatch}>
+          Vegetable
+        </FilterLink>
+
+        <FilterLink action={filterPork} dispatch={dispatch}>
+          Pork
+        </FilterLink>
+      </View>
       <FlatList
         data={myState}
         renderItem={({ item }) => (
@@ -37,41 +54,11 @@ export default function Menu({ navigation }) {
         keyExtractor={(item) => item.id.toString()}
       />
 
-      <View style={styles.subContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            dispatch(filterSoup());
-          }}
-        >
-          <Text style={styles.subText}> Filter Soup</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            dispatch(filterBeef());
-          }}
-        >
-          <Text style={styles.subText}>Filter Beef</Text>
-        </TouchableOpacity>
-      </View>
-
       <Button
         style={styles.btn}
         title="Add Food"
         onPress={() => navigation.navigate("Add Food")}
       />
-      {/* <Button
-        title="Get Soup"
-        type="outline"
-        onPress={() => dispatch(filterSoup())}
-      />
-
-      <Button
-        style={styles.btn}
-        title="Get Beef"
-        type="outline"
-        onPress={() => dispatch(filterBeef())}
-      /> */}
     </View>
   );
 }
@@ -89,6 +76,8 @@ const styles = StyleSheet.create({
   },
   subText: {
     paddingHorizontal: 10,
+    color: "blue",
+    textDecorationLine: "underline",
   },
   titleContainer: {
     alignItems: "center",

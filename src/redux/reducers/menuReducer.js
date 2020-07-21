@@ -172,6 +172,15 @@ function menuReducer(state = initialState, action) {
         items: [...seafoodState],
       };
 
+    case "FILTER_VEGETABLE":
+      const vegetableState = initialState.items.filter(
+        (item) => item.type === "vegetable"
+      );
+      return {
+        ...state,
+        items: [...vegetableState],
+      };
+
     default:
       return state;
   }
