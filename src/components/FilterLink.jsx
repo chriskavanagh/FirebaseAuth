@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function FilterLink(props) {
+export default function FilterLink({ dispatch, action, children }) {
   return (
     <TouchableOpacity
       onPress={() => {
-        props.dispatch(props.action());
+        dispatch(action());
       }}
     >
-      <Text style={styles.subText}>{props.children}</Text>
+      <Text style={styles.subText}>{children}</Text>
     </TouchableOpacity>
   );
 }
@@ -16,8 +16,9 @@ export default function FilterLink(props) {
 const styles = StyleSheet.create({
   subText: {
     paddingHorizontal: 10,
-    color: "blue",
+    color: "#DA70D6",
     fontWeight: "bold",
     textDecorationLine: "underline",
+    fontSize: 16,
   },
 });

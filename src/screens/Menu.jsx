@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { List, Divider } from "react-native-paper";
-import { Button } from "react-native-elements";
+//import { List, Divider } from "react-native-paper";
+import { Button, ListItem } from "react-native-elements";
 //import { soupSelector, allSelector } from "../redux/selectors";
 import { useSelector, useDispatch } from "react-redux";
 //import { getMenu } from "../redux/actions/menuActions";
@@ -47,11 +47,11 @@ export default function Menu({ navigation }) {
       <FlatList
         data={myState}
         renderItem={({ item }) => (
-          <List.Item
+          <ListItem
             title={item.dish}
-            description={`$${item.price.toFixed(2)}`}
-            descriptionNumberOfLines={1}
-            titleStyle={styles.listTitle}
+            subtitle={`$${item.price.toFixed(2)}`}
+            bottomDivider
+            chevron
           />
         )}
         keyExtractor={(item) => item.id.toString()}
@@ -83,25 +83,14 @@ const styles = StyleSheet.create({
     color: "blue",
     textDecorationLine: "underline",
   },
-  titleContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-  },
-  title: {
-    fontSize: 20,
-  },
-  fab: {
-    position: "absolute",
-    margin: 20,
-    right: 0,
-    bottom: 10,
-  },
+
   listTitle: {
     fontSize: 18,
   },
   btn: {
     marginVertical: 5,
     color: "green",
+    width: "50%",
+    alignSelf: "center",
   },
 });
