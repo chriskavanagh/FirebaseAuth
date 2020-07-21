@@ -6,10 +6,11 @@ export const FILTER_CHEF = " FILTER_CHEF";
 export const FILTER_SEAFOOD = "FILTER_SEAFOOD";
 export const FILTER_PORK = "FILTER_PORK";
 export const FILTER_VEGETABLE = "FILTER_VEGETABLE";
+export const FILTER_ALL = "FILTER_ALL";
 
 export const getMenu = (_) => {
   return {
-    type: GET_MENU,
+    type: FILTER_ALL,
   };
 };
 

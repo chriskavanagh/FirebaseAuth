@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { List } from "react-native-paper";
+import { List, Divider } from "react-native-paper";
 import { Button } from "react-native-elements";
-import { soupSelector, allSelector } from "../redux/selectors";
+//import { soupSelector, allSelector } from "../redux/selectors";
 import { useSelector, useDispatch } from "react-redux";
 //import { getMenu } from "../redux/actions/menuActions";
 import FilterLink from "../components/FilterLink";
 import { StyleSheet, View, FlatList } from "react-native";
 import {
+  getMenu,
   filterSoup,
   filterBeef,
   filterChef,
@@ -16,15 +17,17 @@ import {
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
-  const all = useSelector(allSelector);
-  const soup = useSelector(soupSelector);
-  console.log(all);
-  //console.log(`The ${JSON.stringify(soup)}`);
+  //const all = useSelector(allSelector);
+  //const soup = useSelector(soupSelector);
   const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
+        <FilterLink action={getMenu} dispatch={dispatch}>
+          All
+        </FilterLink>
+
         <FilterLink action={filterSoup} dispatch={dispatch}>
           Soup
         </FilterLink>
@@ -46,7 +49,7 @@ export default function Menu({ navigation }) {
         renderItem={({ item }) => (
           <List.Item
             title={item.dish}
-            description={item.price.toFixed(2)}
+            description={`$${item.price.toFixed(2)}`}
             descriptionNumberOfLines={1}
             titleStyle={styles.listTitle}
           />
@@ -72,7 +75,8 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     flexDirection: "row",
-    marginHorizontal: 10,
+    marginHorizontal: 15,
+    justifyContent: "center",
   },
   subText: {
     paddingHorizontal: 10,
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
   listTitle: {
-    fontSize: 20,
+    fontSize: 18,
   },
   btn: {
     marginVertical: 5,

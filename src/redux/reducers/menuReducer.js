@@ -112,7 +112,7 @@ const initialState = {
 
 function menuReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_MENU":
+    case "FILTER_ALL":
       return {
         ...state,
         items: [...initialState.items],
