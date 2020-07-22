@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import menuReducer from "./menuReducer";
 import notesReducer from "./notesReducer";
+import userReducer from "./userReducer";
 
 /* export default combineReducers({
   notesReducer,
@@ -10,6 +11,7 @@ import notesReducer from "./notesReducer";
 const rootReducer = combineReducers({
   notesReducer,
   menuReducer,
+  userReducer,
 });
 
 export default rootReducer;

@@ -20,6 +20,7 @@ function ViewNotes({ navigation }) {
   return (
     <>
       <Header titleText="Simple Note Taker" />
+
       <View style={styles.container}>
         {notes.length === 0 ? (
           <View style={styles.titleContainer}>

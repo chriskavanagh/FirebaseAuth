@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { firebase } from "../firebase/config";
+import { setUser } from "../redux/actions/userActions";
+
 import {
   Image,
   Text,
@@ -14,6 +17,7 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
   const onFooterLinkPress = () => {
     navigation.navigate("Registration");
@@ -24,9 +28,10 @@ export default function LoginScreen({ navigation }) {
       const response = await firebase
         .auth()
         .signInWithEmailAndPassword(email, password);
-      const user = response.user.uid;
+      const user = response.user;
       console.log(user);
       const currentUser = firebase.auth().currentUser;
+      dispatch(setUser(user));
       setPassword("");
       navigation.navigate("Home", {
         user: currentUser.email,

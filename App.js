@@ -1,12 +1,14 @@
 import "react-native-gesture-handler";
 import store from "./src/redux/store";
+import { decode, encode } from "base-64";
 import NoteStack from "./src/Routes/NoteStack";
 import { firebase } from "./src/firebase/config";
 import React, { useEffect, useState } from "react";
 import { Provider as StoreProvider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
-import { decode, encode } from "base-64";
+
+// Firebase won't work without this.
 if (!global.btoa) {
   global.btoa = encode;
 }
@@ -34,6 +36,8 @@ export default function App() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setUser(user.email);
+
+        console.log(user.email);
         usersRef
           .doc(user.uid)
           .get()

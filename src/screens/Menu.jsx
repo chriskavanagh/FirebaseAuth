@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Button, ListItem } from "react-native-elements";
 //import { soupSelector, allSelector } from "../redux/selectors";
 import { useSelector, useDispatch } from "react-redux";
-//import { getMenu } from "../redux/actions/menuActions";
 import FilterLink from "../components/FilterLink";
 import { StyleSheet, View, FlatList } from "react-native";
 import {
@@ -17,6 +16,8 @@ import {
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
+  const user = useSelector((state) => state.userReducer.user);
+  console.log(user);
   //const all = useSelector(allSelector);
   //const soup = useSelector(soupSelector);
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ export default function Menu({ navigation }) {
 
       <Button
         style={styles.btn}
-        title="Add Food"
+        title={user.email}
         onPress={() => navigation.navigate("Add Food")}
       />
     </View>
