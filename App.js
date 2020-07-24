@@ -7,6 +7,8 @@ import React, { useEffect, useState } from "react";
 import { Provider as StoreProvider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+//import { setUser } from "./src/redux/actions/userActions";
+//import { useDispatch } from "react-redux";
 
 // Firebase won't work without this.
 if (!global.btoa) {
@@ -26,17 +28,20 @@ const theme = {
   },
 };
 
+export const UserContext = React.createContext({});
+
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+  //const dispatch = useDispatch();
 
   useEffect(() => {
     const usersRef = firebase.firestore().collection("users");
     //console.log(usersRef);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        setUser(user.email);
-
+        setUser(user);
+        //dispatch(setUser(user));
         console.log(user.email);
         usersRef
           .doc(user.uid)
@@ -44,7 +49,7 @@ export default function App() {
           .then((document) => {
             const userData = document.data();
             setLoading(false);
-            setUser(userData);
+            //setUser(userData);
           })
           .catch((error) => {
             setLoading(false);
@@ -60,15 +65,18 @@ export default function App() {
   }
   return (
     <StoreProvider store={store}>
-      <PaperProvider theme={DefaultTheme}>
-        <NavigationContainer>
-          <NoteStack />
-        </NavigationContainer>
-      </PaperProvider>
+      <UserContext.Provider value={user}>
+        <PaperProvider theme={DefaultTheme}>
+          <NavigationContainer>
+            <NoteStack />
+          </NavigationContainer>
+        </PaperProvider>
+      </UserContext.Provider>
     </StoreProvider>
   );
+}
 
-  /* return (
+/* return (
     <NavigationContainer>
       <Stack.Navigator>
         {user ? (
@@ -84,4 +92,3 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   ); */
-}

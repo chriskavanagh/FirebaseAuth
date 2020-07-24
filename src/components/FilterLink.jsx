@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     color: "#DA70D6",
     fontWeight: "bold",
     textDecorationLine: "underline",
-    fontSize: 16,
+    fontSize: 17,
   },
 });

@@ -4,7 +4,15 @@ import { Button, ListItem } from "react-native-elements";
 //import { soupSelector, allSelector } from "../redux/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import FilterLink from "../components/FilterLink";
-import { StyleSheet, View, FlatList } from "react-native";
+import MenuModal from "../components/MenuModal";
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+import { UserContext } from "../../App";
 import {
   getMenu,
   filterSoup,
@@ -16,14 +24,29 @@ import {
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
-  const user = useSelector((state) => state.userReducer.user);
-  console.log(user);
+  //const user = useSelector((state) => state.userReducer.user);
   //const all = useSelector(allSelector);
   //const soup = useSelector(soupSelector);
+
   const dispatch = useDispatch();
+  const myUser = React.useContext(UserContext);
+  console.log(myUser);
+
+  const [isVisible, setIsvisible] = useState(false);
+  const [data, setData] = useState({});
+
+  function passData(item) {
+    setIsvisible(true);
+    setData(item);
+  }
+
+  function closeModal() {
+    setIsvisible(false);
+  }
 
   return (
     <View style={styles.container}>
+      <MenuModal isVisible={isVisible} item={data} close={closeModal} />
       <View style={styles.subContainer}>
         <FilterLink action={getMenu} dispatch={dispatch}>
           All
@@ -48,19 +71,21 @@ export default function Menu({ navigation }) {
       <FlatList
         data={myState}
         renderItem={({ item }) => (
-          <ListItem
-            title={item.dish}
-            subtitle={`$${item.price.toFixed(2)}`}
-            bottomDivider
-            chevron
-          />
+          <TouchableOpacity onPress={() => passData(item)}>
+            <ListItem
+              title={item.dish}
+              subtitle={`$${item.price.toFixed(2)}`}
+              bottomDivider
+              chevron
+            />
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id.toString()}
       />
 
       <Button
         style={styles.btn}
-        title={user.email}
+        title={myUser.email}
         onPress={() => navigation.navigate("Add Food")}
       />
     </View>
@@ -89,7 +114,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   btn: {
-    marginVertical: 5,
+    marginVertical: 1,
     color: "green",
     width: "50%",
     alignSelf: "center",
