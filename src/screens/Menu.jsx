@@ -5,14 +5,8 @@ import { Button, ListItem } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
 import FilterLink from "../components/FilterLink";
 import MenuModal from "../components/MenuModal";
-import {
-  StyleSheet,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Text,
-} from "react-native";
-import { UserContext } from "../../App";
+import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
+//import { UserContext } from "../screens/Main";
 import {
   getMenu,
   filterSoup,
@@ -24,13 +18,13 @@ import {
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
-  //const user = useSelector((state) => state.userReducer.user);
+  const user = useSelector((state) => state.userReducer.user);
   //const all = useSelector(allSelector);
   //const soup = useSelector(soupSelector);
 
   const dispatch = useDispatch();
-  const myUser = React.useContext(UserContext);
-  console.log(myUser);
+  //const myUser = React.useContext(UserContext);
+  //console.log(myUser);
 
   const [isVisible, setIsvisible] = useState(false);
   const [data, setData] = useState({});
@@ -85,7 +79,7 @@ export default function Menu({ navigation }) {
 
       <Button
         style={styles.btn}
-        title={myUser.email}
+        title={user.email}
         onPress={() => navigation.navigate("Add Food")}
       />
     </View>
