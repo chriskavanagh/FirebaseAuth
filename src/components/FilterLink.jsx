@@ -16,9 +16,10 @@ export default function FilterLink({ dispatch, action, children }) {
 const styles = StyleSheet.create({
   subText: {
     paddingHorizontal: 10,
-    color: "#DA70D6",
+    color: "#580000",
     fontWeight: "bold",
     textDecorationLine: "underline",
-    fontSize: 16,
+    fontSize: 17,
+    marginBottom: 10,
   },
 });

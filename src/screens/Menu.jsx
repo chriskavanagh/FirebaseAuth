@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-//import { List, Divider } from "react-native-paper";
-import { Button, ListItem } from "react-native-elements";
-//import { soupSelector, allSelector } from "../redux/selectors";
-import { useSelector, useDispatch } from "react-redux";
-import FilterLink from "../components/FilterLink";
+import React, { useState } from "react";
 import MenuModal from "../components/MenuModal";
+import FilterLink from "../components/FilterLink";
+import { useSelector, useDispatch } from "react-redux";
+import { Button, ListItem } from "react-native-elements";
+import { Icon } from "react-native-elements";
 import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 //import { UserContext } from "../screens/Main";
+//import { List, Divider } from "react-native-paper";
+//import { soupSelector, allSelector } from "../redux/selectors";
 import {
   getMenu,
   filterSoup,
@@ -24,7 +25,6 @@ export default function Menu({ navigation }) {
 
   const dispatch = useDispatch();
   //const myUser = React.useContext(UserContext);
-  //console.log(myUser);
 
   const [isVisible, setIsvisible] = useState(false);
   const [data, setData] = useState({});
@@ -68,20 +68,31 @@ export default function Menu({ navigation }) {
           <TouchableOpacity onPress={() => passData(item)}>
             <ListItem
               title={item.dish}
+              titleStyle={{ fontWeight: "600" }}
               subtitle={`$${item.price.toFixed(2)}`}
+              subtitleStyle={{ color: "black" }}
               bottomDivider
-              chevron
+              chevron={{ color: "#580000" }}
+              leftIcon={
+                <Icon
+                  name="cart-plus"
+                  type="font-awesome-5"
+                  color="#580000"
+                  size={24}
+                  containerStyle={{ marginRight: 3 }}
+                />
+              }
             />
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id.toString()}
       />
 
-      <Button
+      {/* <Button
         style={styles.btn}
         title={user.email}
         onPress={() => navigation.navigate("Add Food")}
-      />
+      /> */}
     </View>
   );
 }

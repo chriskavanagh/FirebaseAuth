@@ -29,7 +29,6 @@ export default function LoginScreen({ navigation }) {
         .auth()
         .signInWithEmailAndPassword(email, password);
       const user = response.user;
-      console.log(user);
       const currentUser = firebase.auth().currentUser;
       dispatch(setUser(user));
       setPassword("");
