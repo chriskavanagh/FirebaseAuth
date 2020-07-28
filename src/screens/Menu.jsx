@@ -68,7 +68,7 @@ export default function Menu({ navigation }) {
           <TouchableOpacity onPress={() => passData(item)}>
             <ListItem
               title={item.dish}
-              titleStyle={{ fontWeight: "600" }}
+              titleStyle={{ fontWeight: "700" }}
               subtitle={`$${item.price.toFixed(2)}`}
               subtitleStyle={{ color: "black" }}
               bottomDivider
