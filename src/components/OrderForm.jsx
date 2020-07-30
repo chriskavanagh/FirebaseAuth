@@ -5,7 +5,7 @@ import { Formik, Field, Form } from "formik";
 //import "react-select/dist/react-select.css";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Button } from "react-native-elements";
-import Select from "react-select";
+//import Select from "react-select";
 //import "react-select/dist/react-select.css";
 
 const validationSchema = Yup.object({
@@ -13,35 +13,12 @@ const validationSchema = Yup.object({
   notes: Yup.string().required("Required"),
 });
 
-const options = [
-  { value: "1", label: "1" },
-  { value: "2", label: "2" },
-  { value: "3", label: "3" },
-  { value: "4", label: "4" },
-  { value: "5", label: "5" },
-];
-
-const MySelect = (props) => {
-  const handleChange = (value) => {
-    props.onChangeText("quantity", value);
-  };
-  return (
-    <Select
-      options={options}
-      multi={true}
-      onChange={handleChange}
-      value={props.value}
-      placeholder="Quantity"
-    />
-  );
-};
-
 function OrderForm() {
   return (
     <View style={styles.container}>
       <Formik
         initialValues={{ quantity: "", notes: "" }}
-        validationSchema={validationSchema}
+        //validationSchema={validationSchema}
         onSubmit={(values, actions) => {
           actions.resetForm();
           console.log(values);
@@ -50,23 +27,28 @@ function OrderForm() {
         {(props) => (
           <Form>
             <View>
-              <MySelect
-                value={props.values.quantity}
-                onChangeText={props.setFieldValue}
-              />
+              <Field as="select" name="quantity" placeholder="Quantity">
+                <option value="1" label="1" />
+                <option value="2" label="2" />
+                <option value="3" label="3" />
+                <option value="4" label="4" />
+                <option value="5" label="5" />
+              </Field>
               <TextInput
                 style={styles.input}
-                placeholder="Notes"
+                placeholder="Special Instructions"
                 onChangeText={props.handleChange("notes")}
                 value={props.values.notes}
+                multiline
+                numberOfLines={1}
+                maxLength={20}
               />
-
               <Button
                 color="maroon"
                 title="Submit"
                 onPress={props.handleSubmit}
               />
-              <pre>{JSON.stringify(props, null, 2)}</pre>
+              {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
             </View>
           </Form>
         )}
@@ -101,3 +83,33 @@ const styles = StyleSheet.create({
   style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
   /> */
 }
+
+/* const options = [
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+  { value: "5", label: "5" },
+];
+
+const MySelect = (props) => {
+  const handleChange = (value) => {
+    props.onChangeText("quantity", value);
+  };
+  return (
+    <Select
+      options={options}
+      multi={true}
+      onChange={handleChange}
+      value={props.value}
+      placeholder="Quantity"
+    />
+  );
+}; */
+
+/*
+<MySelect
+    value={props.values.quantity}
+    onChangeText={props.setFieldValue}
+  />
+*/

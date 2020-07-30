@@ -12,7 +12,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import OrderForm from "../components/OrderForm";
+//import OrderForm from "../components/OrderForm";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -81,8 +81,6 @@ export default function LoginScreen({ navigation }) {
           </Text>
         </View>
       </KeyboardAwareScrollView>
-
-      <OrderForm />
     </View>
   );
 }
