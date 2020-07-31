@@ -568,12 +568,14 @@ function cartReducer(state = initialState, action) {
       let addedItem = state.items.find((item) => item.id === action.payload.id);
       addedItem.quantity = action.payload.quantity;
       addedItem.notes = action.payload.notes;
-      return {
+      /* return {
         ...state,
         cart: [...state.cart, addedItem],
         total: 0,
-      };
-    /* let existed_item = state.cart.find((item) => action.payload.id === item.id);
+      }; */
+      let existed_item = state.cart.find(
+        (item) => action.payload.id === item.id
+      );
       if (existed_item) {
         addedItem.quantity += 1;
         return {
@@ -589,7 +591,7 @@ function cartReducer(state = initialState, action) {
           cart: [...state.cart, addedItem],
           total: newTotal,
         };
-      } */
+      }
     case "ADD_QUANTITY":
       let add_cart_item = state.cart.find(
         (item) => action.payload.id === item.id

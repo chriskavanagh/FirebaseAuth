@@ -7,13 +7,23 @@ import { addItem } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { StyleSheet, View, Modal, Text } from "react-native";
+import { Snackbar } from "react-native-paper";
 
 export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
   const [notes, setNotes] = React.useState("");
+  const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
   console.log(cart);
+
+  const onToggleSnackBar = () => setVisible(!visible);
+  const onDismissSnackBar = () => setVisible(false);
+
+  const myaddItem = (id, quantity, notes) => {
+    dispatch(addItem(id, quantity, notes));
+    onToggleSnackBar();
+  };
 
   return (
     <Modal visible={props.isVisible}>
@@ -57,8 +67,20 @@ export default function MenuModal(props) {
           titleStyle={{ marginLeft: 5 }}
           icon={<Icon name="check-circle" size={18} color="white" />}
           title="Add Item"
-          onPress={() => dispatch(addItem(props.item.id, quantity, notes))}
+          onPress={() => myaddItem(props.item.id, quantity, notes)}
         />
+        <Snackbar
+          visible={visible}
+          onDismiss={onDismissSnackBar}
+          action={{
+            label: "Close",
+            onPress: () => {
+              console.log("Item Added");
+            },
+          }}
+        >
+          {props.item.dish} added to Cart!
+        </Snackbar>
       </View>
     </Modal>
   );
