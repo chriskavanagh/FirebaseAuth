@@ -577,7 +577,8 @@ function cartReducer(state = initialState, action) {
         (item) => action.payload.id === item.id
       );
       if (existed_item) {
-        addedItem.quantity += 1;
+        console.log(`Existing ${existed_item}`);
+        addedItem.quantity += action.payload.quantity;
         return {
           ...state,
           total: state.total + addedItem.price,

@@ -1,13 +1,12 @@
 import React from "react";
-import { TextInput } from "react-native-paper";
 import { Button } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { addItem } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
+import { Snackbar, TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { StyleSheet, View, Modal, Text } from "react-native";
-import { Snackbar } from "react-native-paper";
 
 export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
@@ -71,6 +70,7 @@ export default function MenuModal(props) {
         />
         <Snackbar
           visible={visible}
+          duration={2000}
           onDismiss={onDismissSnackBar}
           action={{
             label: "Close",
