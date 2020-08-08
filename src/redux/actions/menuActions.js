@@ -17,43 +17,43 @@ export const getMenu = (_) => {
   };
 };
 
-export const filterSoup = () => {
+export const filterSoup = (_) => {
   return {
     type: FILTER_SOUP,
   };
 };
 
-export const filterVegetable = () => {
+export const filterVegetable = (_) => {
   return {
     type: FILTER_VEGETABLE,
   };
 };
 
-export const filterPoultry = () => {
+export const filterPoultry = (_) => {
   return {
     type: FILTER_POULTRY,
   };
 };
 
-export const filterBeef = () => {
+export const filterBeef = (_) => {
   return {
     type: FILTER_BEEF,
   };
 };
 
-export const filterChef = () => {
+export const filterChef = (_) => {
   return {
     type: FILTER_CHEF,
   };
 };
 
-export const filterSeafood = () => {
+export const filterSeafood = (_) => {
   return {
     type: FILTER_SEAFOOD,
   };
 };
 
-export const filterPork = () => {
+export const filterPork = (_) => {
   return {
     type: FILTER_PORK,
   };

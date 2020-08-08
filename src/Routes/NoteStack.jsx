@@ -3,7 +3,7 @@ import AuthStack from "./AuthStack";
 import RootStack from "./RootStack";
 import FoodStack from "./FoodStack";
 import Icon from "react-native-vector-icons/Ionicons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+//import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();

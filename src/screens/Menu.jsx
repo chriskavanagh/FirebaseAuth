@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import MenuModal from "../components/MenuModal";
 import FilterLink from "../components/FilterLink";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, ListItem } from "react-native-elements";
+import { ListItem } from "react-native-elements";
 import { Icon } from "react-native-elements";
-import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+  ScrollView,
+  //useWindowDimensions,
+} from "react-native";
 //import { UserContext } from "../screens/Main";
 //import { List, Divider } from "react-native-paper";
 //import { soupSelector, allSelector } from "../redux/selectors";
@@ -41,26 +48,43 @@ export default function Menu({ navigation }) {
   return (
     <View style={styles.container}>
       <MenuModal isVisible={isVisible} item={data} close={closeModal} />
-      <View style={styles.subContainer}>
-        <FilterLink action={getMenu} dispatch={dispatch}>
-          All
-        </FilterLink>
+      <View>
+        <ScrollView
+          horizontal={true}
+          alwaysBounceHorizontal={true}
+          persistentScrollbar={true}
+          contentContainerStyle={{
+            marginVertical: 5,
+          }}
+        >
+          <FilterLink action={getMenu} dispatch={dispatch}>
+            All
+          </FilterLink>
 
-        <FilterLink action={filterSoup} dispatch={dispatch}>
-          Soup
-        </FilterLink>
+          <FilterLink action={filterSoup} dispatch={dispatch}>
+            Soup
+          </FilterLink>
 
-        <FilterLink action={filterBeef} dispatch={dispatch}>
-          Beef
-        </FilterLink>
+          <FilterLink action={filterBeef} dispatch={dispatch}>
+            Beef
+          </FilterLink>
 
-        <FilterLink action={filterVegetable} dispatch={dispatch}>
-          Vegetable
-        </FilterLink>
+          <FilterLink action={filterVegetable} dispatch={dispatch}>
+            Vegetable
+          </FilterLink>
 
-        <FilterLink action={filterPork} dispatch={dispatch}>
-          Pork
-        </FilterLink>
+          <FilterLink action={filterPork} dispatch={dispatch}>
+            Pork
+          </FilterLink>
+
+          <FilterLink action={filterChef} dispatch={dispatch}>
+            Chef
+          </FilterLink>
+
+          <FilterLink action={filterPork} dispatch={dispatch}>
+            Sushi
+          </FilterLink>
+        </ScrollView>
       </View>
       <FlatList
         data={myState}
@@ -107,7 +131,9 @@ const styles = StyleSheet.create({
   subContainer: {
     flexDirection: "row",
     marginHorizontal: 15,
+    marginVertical: 15,
     justifyContent: "center",
+    paddingRight: 20,
   },
   subText: {
     paddingHorizontal: 10,
