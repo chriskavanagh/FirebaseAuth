@@ -1,7 +1,46 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Button } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome5";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 export default function FilterLink({ dispatch, action, children }) {
+  return (
+    <TouchableOpacity style={{ marginHorizontal: 2 }}>
+      <Button
+        buttonStyle={{
+          borderColor: "#580000",
+          backgroundColor: "#D8D8D8",
+          borderWidth: 2,
+          width: 120,
+          borderRadius: 10,
+        }}
+        titleStyle={{ marginLeft: 5, color: "black" }}
+        style={styles.subText}
+        icon={<Icon name="search" size={18} color="#580000" />}
+        title={children}
+        type="outline"
+        onPress={() => {
+          dispatch(action());
+        }}
+      />
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  subText: {
+    marginBottom: 10,
+    marginTop: 10,
+    //backgroundColor: "#D8D8D8",
+    //borderWidth: 2,
+    //borderColor: "#580000",
+    width: 120,
+    marginHorizontal: 5,
+    textAlign: "center",
+  },
+});
+
+/* export default function FilterLink({ dispatch, action, children }) {
   return (
     <TouchableOpacity
       onPress={() => {
@@ -11,9 +50,9 @@ export default function FilterLink({ dispatch, action, children }) {
       <Text style={styles.subText}>{children}</Text>
     </TouchableOpacity>
   );
-}
+} */
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
   subText: {
     paddingHorizontal: 10,
     color: "#580000",
@@ -24,11 +63,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: "#D8D8D8",
     padding: 5,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#20232a",
     borderRadius: 6,
     width: 120,
     textAlign: "center",
     marginHorizontal: 5,
   },
-});
+}); */

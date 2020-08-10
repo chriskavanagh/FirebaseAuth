@@ -4,6 +4,7 @@ import FilterLink from "../components/FilterLink";
 import { useSelector, useDispatch } from "react-redux";
 import { ListItem } from "react-native-elements";
 import { Icon } from "react-native-elements";
+import { AntDesign } from "@expo/vector-icons";
 import {
   StyleSheet,
   View,
@@ -49,10 +50,17 @@ export default function Menu({ navigation }) {
     <View style={styles.container}>
       <MenuModal isVisible={isVisible} item={data} close={closeModal} />
       <View>
+        <AntDesign
+          name="swap"
+          size={24}
+          color="black"
+          style={{ marginTop: 10, marginLeft: 5 }}
+        />
+
         <ScrollView
           horizontal={true}
           alwaysBounceHorizontal={true}
-          persistentScrollbar={true}
+          //persistentScrollbar={true}
           contentContainerStyle={{
             marginVertical: 5,
           }}
