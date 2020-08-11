@@ -7,14 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Snackbar } from "react-native-paper";
 //import Icon from "react-native-vector-icons/FontAwesome";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import {
-  StyleSheet,
-  View,
-  Modal,
-  Text,
-  ScrollView,
-  TextInput,
-} from "react-native";
+import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
 import AppTextInput from "./AppTextInput";
 //import { ScrollView } from "react-native-gesture-handler";
 import NumericInput from "react-native-numeric-input";
@@ -23,6 +16,7 @@ export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
   const [notes, setNotes] = React.useState("");
   console.log(notes);
+  console.log(quantity);
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
@@ -48,7 +42,7 @@ export default function MenuModal(props) {
           <View>
             <NumericInput
               type="plus-minus"
-              onChange={(value) => console.log(value)}
+              onChange={(value) => setQuantity(value)}
               totalWidth={200}
               totalHeight={50}
               iconSize={25}
@@ -65,6 +59,9 @@ export default function MenuModal(props) {
               value={notes}
               onChangeText={(text) => setNotes(text)}
             />
+          </View>
+          <View>
+            <Button title="Master Branch" type="outline" />
           </View>
         </View>
       </ScrollView>
