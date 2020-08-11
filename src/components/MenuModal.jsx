@@ -66,6 +66,13 @@ export default function MenuModal(props) {
               onChangeText={(text) => setNotes(text)}
             />
           </View>
+          <View>
+            <Button
+              title="MenuModal Dev Branch"
+              type="outline"
+              onPress={() => myaddItem(props.item.id, quantity, notes)}
+            />
+          </View>
         </View>
       </ScrollView>
     </Modal>
