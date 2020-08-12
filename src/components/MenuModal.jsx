@@ -7,16 +7,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { Snackbar } from "react-native-paper";
 //import Icon from "react-native-vector-icons/FontAwesome";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Modal,
+  Text,
+  ScrollView,
+  TextInput,
+} from "react-native";
 import AppTextInput from "./AppTextInput";
 //import { ScrollView } from "react-native-gesture-handler";
 import NumericInput from "react-native-numeric-input";
 
 export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
+
   const [notes, setNotes] = React.useState("");
   console.log(notes);
-  console.log(quantity);
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
@@ -25,10 +32,14 @@ export default function MenuModal(props) {
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
 
-  const myaddItem = (id, quantity, notes) => {
-    dispatch(addItem(id, quantity, notes));
+  const myaddItem = (id, value, notes) => {
+    dispatch(addItem(id, value, notes));
     onToggleSnackBar();
   };
+
+  React.useEffect(() => {
+    console.log(`Quantity - ${quantity}`);
+  });
 
   return (
     <Modal visible={props.isVisible}>
@@ -42,6 +53,7 @@ export default function MenuModal(props) {
           <View>
             <NumericInput
               type="plus-minus"
+              value={quantity}
               onChange={(value) => setQuantity(value)}
               totalWidth={200}
               totalHeight={50}
@@ -60,8 +72,12 @@ export default function MenuModal(props) {
               onChangeText={(text) => setNotes(text)}
             />
           </View>
-          <View>
-            <Button title="Master Branch" type="outline" />
+          <View style={{ paddingHorizontal: 10 }}>
+            <Button
+              title="MenuModal Dev Branch"
+              type="outline"
+              onPress={() => myaddItem(props.item.id, quantity, notes)}
+            />
           </View>
         </View>
       </ScrollView>
