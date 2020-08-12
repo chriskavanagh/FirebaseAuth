@@ -6,18 +6,11 @@ import { addItem } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
 import { Snackbar } from "react-native-paper";
 //import Icon from "react-native-vector-icons/FontAwesome";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import {
-  StyleSheet,
-  View,
-  Modal,
-  Text,
-  ScrollView,
-  TextInput,
-} from "react-native";
 import AppTextInput from "./AppTextInput";
 //import { ScrollView } from "react-native-gesture-handler";
 import NumericInput from "react-native-numeric-input";
+//import Icon from "react-native-vector-icons/FontAwesome5";
+import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
 
 export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
@@ -72,12 +65,26 @@ export default function MenuModal(props) {
               onChangeText={(text) => setNotes(text)}
             />
           </View>
-          <View style={{ paddingHorizontal: 10 }}>
+          <View style={{ paddingHorizontal: 10, paddingVertical: 5 }}>
             <Button
               title="MenuModal Dev Branch"
               type="outline"
               onPress={() => myaddItem(props.item.id, quantity, notes)}
             />
+
+            <Snackbar
+              visible={visible}
+              duration={2000}
+              onDismiss={onDismissSnackBar}
+              action={{
+                label: "Close",
+                onPress: () => {
+                  console.log("Item Added");
+                },
+              }}
+            >
+              {props.item.dish} added to Cart!
+            </Snackbar>
           </View>
         </View>
       </ScrollView>
