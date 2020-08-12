@@ -21,6 +21,7 @@ import NumericInput from "react-native-numeric-input";
 
 export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
+
   const [notes, setNotes] = React.useState("");
   console.log(notes);
   const [visible, setVisible] = React.useState(false);
@@ -31,10 +32,14 @@ export default function MenuModal(props) {
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
 
-  const myaddItem = (id, quantity, notes) => {
-    dispatch(addItem(id, quantity, notes));
+  const myaddItem = (id, value, notes) => {
+    dispatch(addItem(id, value, notes));
     onToggleSnackBar();
   };
+
+  React.useEffect(() => {
+    console.log(`Quantity - ${quantity}`);
+  });
 
   return (
     <Modal visible={props.isVisible}>
@@ -48,7 +53,8 @@ export default function MenuModal(props) {
           <View>
             <NumericInput
               type="plus-minus"
-              onChange={(value) => console.log(value)}
+              value={quantity}
+              onChange={(value) => setQuantity(value)}
               totalWidth={200}
               totalHeight={50}
               iconSize={25}

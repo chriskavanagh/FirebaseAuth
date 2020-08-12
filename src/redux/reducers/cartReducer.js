@@ -584,7 +584,7 @@ function cartReducer(state = initialState, action) {
           total: state.total + addedItem.price,
         };
       } else {
-        addedItem.quantity = 1;
+        addedItem.quantity = action.payload.quantity;
         let newTotal = state.total + addedItem.price;
 
         return {
