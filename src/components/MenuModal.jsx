@@ -66,7 +66,7 @@ export default function MenuModal(props) {
               onChangeText={(text) => setNotes(text)}
             />
           </View>
-          <View>
+          <View style={{ paddingHorizontal: 10 }}>
             <Button
               title="MenuModal Dev Branch"
               type="outline"
