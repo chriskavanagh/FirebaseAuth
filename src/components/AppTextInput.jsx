@@ -1,7 +1,6 @@
 import React from "react";
-import { View, TextInput, StyleSheet } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { View, TextInput, StyleSheet } from "react-native";
 
 export default function AppTextInput(props) {
   return (
