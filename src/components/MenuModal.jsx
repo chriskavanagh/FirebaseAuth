@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "react-native-elements";
-import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { addItem } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +12,13 @@ import NumericInput from "react-native-numeric-input";
 import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
 
 export default function MenuModal(props) {
+  // destructure price from props.item;
+  const {
+    item: { price },
+  } = props;
+
+  //const itemPrice = price.toFixed(2);
+
   const [quantity, setQuantity] = React.useState(1);
 
   const [notes, setNotes] = React.useState("");
@@ -31,7 +37,8 @@ export default function MenuModal(props) {
   };
 
   React.useEffect(() => {
-    console.log(`Quantity - ${quantity}`);
+    //console.log(`Quantity - ${quantity}`);
+    console.log(`Price = ${price}`);
   });
 
   return (
@@ -40,7 +47,9 @@ export default function MenuModal(props) {
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.subtxt}>{props.item.dish}</Text>
-          <Text style={styles.pricetxt}>${props.item.price}</Text>
+          <Text style={styles.pricetxt}>
+            ${props.item.price ? props.item.price.toFixed(2) : 0}
+          </Text>
 
           <Text style={{ fontSize: 34, marginBottom: 10 }}>Quantity</Text>
           <View>
@@ -48,7 +57,7 @@ export default function MenuModal(props) {
               type="plus-minus"
               value={quantity}
               onChange={(value) => setQuantity(value)}
-              totalWidth={200}
+              totalWidth={220}
               totalHeight={50}
               iconSize={25}
               rightButtonBackgroundColor="#EA3788"
