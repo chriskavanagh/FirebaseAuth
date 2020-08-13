@@ -12,34 +12,26 @@ import NumericInput from "react-native-numeric-input";
 import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
 
 export default function MenuModal(props) {
-  // destructure price from props.item;
-  const {
-    item: { price },
-  } = props;
-
-  //const itemPrice = price.toFixed(2);
-
   const [quantity, setQuantity] = React.useState(1);
-
   const [notes, setNotes] = React.useState("");
-  console.log(notes);
   const [visible, setVisible] = React.useState(false);
+
+  // redux dispatch & selector
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
   console.log(cart);
 
+  // toggle for snackbar
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
 
+  // add item to cart
   const myaddItem = (id, value, notes) => {
     dispatch(addItem(id, value, notes));
     onToggleSnackBar();
+    setQuantity(1);
+    setNotes("");
   };
-
-  React.useEffect(() => {
-    //console.log(`Quantity - ${quantity}`);
-    console.log(`Price = ${price}`);
-  });
 
   return (
     <Modal visible={props.isVisible}>
@@ -60,8 +52,8 @@ export default function MenuModal(props) {
               totalWidth={220}
               totalHeight={50}
               iconSize={25}
-              rightButtonBackgroundColor="#EA3788"
-              leftButtonBackgroundColor="#E56B70"
+              rightButtonBackgroundColor="#007800"
+              leftButtonBackgroundColor="#980000"
             />
           </View>
           <View style={{ paddingHorizontal: 10 }}>
@@ -74,7 +66,9 @@ export default function MenuModal(props) {
               onChangeText={(text) => setNotes(text)}
             />
           </View>
-          <View style={{ paddingHorizontal: 10, paddingVertical: 5 }}>
+          <View
+            style={{ paddingHorizontal: 10, paddingVertical: 5, width: "100%" }}
+          >
             <Button
               title="MenuModal Dev Branch"
               type="outline"
@@ -88,7 +82,7 @@ export default function MenuModal(props) {
               action={{
                 label: "Close",
                 onPress: () => {
-                  console.log("Item Added");
+                  console.log(props.item.dish);
                 },
               }}
             >
@@ -106,7 +100,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 30,
     //justifyContent: "space-between",
-    //alignItems: "center",
+    alignItems: "center",
     alignContent: "center",
   },
   txt: {
