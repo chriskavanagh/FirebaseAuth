@@ -38,12 +38,12 @@ export default function MenuModal(props) {
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.subtxt}>{props.item.dish}</Text>
-          <Text style={styles.subtxt}>{user.email}</Text>
+          {/* <Text style={styles.subtxt}>{user.email}</Text> */}
           <Text style={styles.pricetxt}>
             ${props.item.price ? props.item.price.toFixed(2) : 0}
           </Text>
 
-          <Text style={{ fontSize: 30, marginBottom: 10 }}>Quantity</Text>
+          <Text style={{ fontSize: 22, marginBottom: 10 }}>Quantity</Text>
           <View>
             <NumericInput
               type="plus-minus"
@@ -54,8 +54,8 @@ export default function MenuModal(props) {
               totalWidth={220}
               totalHeight={50}
               iconSize={25}
-              rightButtonBackgroundColor="#007800"
-              leftButtonBackgroundColor="#980000"
+              rightButtonBackgroundColor="#0000FF"
+              leftButtonBackgroundColor="#FF0000"
             />
           </View>
           <View style={{ paddingHorizontal: 10 }}>
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
   subtxt: {
-    fontSize: 20,
-    marginTop: 15,
+    fontSize: 26,
+    marginTop: 25,
   },
   pricetxt: {
     fontSize: 18,
