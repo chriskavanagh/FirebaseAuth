@@ -12,7 +12,6 @@ import {
   StyleSheet,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-//import OrderForm from "../components/OrderForm";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -54,7 +53,7 @@ export default function LoginScreen({ navigation }) {
           style={styles.input}
           placeholder="E-mail"
           placeholderTextColor="#aaaaaa"
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setEmail(text.trim())}
           value={email}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
@@ -64,7 +63,7 @@ export default function LoginScreen({ navigation }) {
           placeholderTextColor="#aaaaaa"
           secureTextEntry
           placeholder="Password"
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={(text) => setPassword(text.trim())}
           value={password}
           underlineColorAndroid="transparent"
           autoCapitalize="none"

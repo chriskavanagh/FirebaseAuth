@@ -4,11 +4,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { addItem } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
 import { Snackbar } from "react-native-paper";
-//import Icon from "react-native-vector-icons/FontAwesome";
 import AppTextInput from "./AppTextInput";
-//import { ScrollView } from "react-native-gesture-handler";
 import NumericInput from "react-native-numeric-input";
-//import Icon from "react-native-vector-icons/FontAwesome5";
 import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
 
 export default function MenuModal(props) {
@@ -19,6 +16,8 @@ export default function MenuModal(props) {
   // redux dispatch & selector
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
+  const user = useSelector((state) => state.userReducer.user);
+  //console.log(user);
   console.log(cart);
 
   // toggle for snackbar
@@ -39,14 +38,17 @@ export default function MenuModal(props) {
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.subtxt}>{props.item.dish}</Text>
+          <Text style={styles.subtxt}>{user.email}</Text>
           <Text style={styles.pricetxt}>
             ${props.item.price ? props.item.price.toFixed(2) : 0}
           </Text>
 
-          <Text style={{ fontSize: 34, marginBottom: 10 }}>Quantity</Text>
+          <Text style={{ fontSize: 30, marginBottom: 10 }}>Quantity</Text>
           <View>
             <NumericInput
               type="plus-minus"
+              minValue={1}
+              maxValue={10}
               value={quantity}
               onChange={(value) => setQuantity(value)}
               totalWidth={220}
@@ -107,11 +109,11 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
   subtxt: {
-    fontSize: 28,
+    fontSize: 20,
     marginTop: 15,
   },
   pricetxt: {
-    fontSize: 26,
+    fontSize: 18,
   },
   txtInput: {
     height: 45,
