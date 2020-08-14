@@ -7,6 +7,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 102,
@@ -15,6 +16,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 103,
@@ -23,6 +25,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 104,
@@ -31,6 +34,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 105,
@@ -39,6 +43,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 106,
@@ -47,6 +52,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 107,
@@ -55,6 +61,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 108,
@@ -63,6 +70,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 109,
@@ -71,6 +79,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 110,
@@ -79,6 +88,7 @@ export const initialState = {
       type: "soup",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 200,
@@ -87,6 +97,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 201,
@@ -95,6 +106,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 202,
@@ -103,6 +115,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 203,
@@ -111,6 +124,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 204,
@@ -119,6 +133,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 205,
@@ -127,6 +142,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 206,
@@ -135,6 +151,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 207,
@@ -143,6 +160,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 208,
@@ -151,6 +169,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 209,
@@ -159,6 +178,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 210,
@@ -167,6 +187,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 211,
@@ -175,6 +196,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 212,
@@ -183,12 +205,16 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 213,
       dish: "Chicken w/Blk Bean Sauce",
       price: 10.95,
       type: "chicken",
+      notes: "",
+      quantity: 0,
+      spicy: false,
     },
     {
       id: 214,
@@ -197,6 +223,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 215,
@@ -205,6 +232,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 216,
@@ -213,6 +241,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 217,
@@ -221,6 +250,7 @@ export const initialState = {
       type: "chicken",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 301,
@@ -229,6 +259,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 302,
@@ -237,6 +268,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 303,
@@ -245,6 +277,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 304,
@@ -253,6 +286,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 305,
@@ -261,6 +295,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 306,
@@ -269,6 +304,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 307,
@@ -277,6 +313,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 308,
@@ -285,6 +322,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 309,
@@ -293,6 +331,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 310,
@@ -301,6 +340,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 311,
@@ -309,6 +349,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 312,
@@ -317,6 +358,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 313,
@@ -325,6 +367,7 @@ export const initialState = {
       type: "beef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 400,
@@ -357,6 +400,7 @@ export const initialState = {
       type: "pork",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 404,
@@ -365,6 +409,7 @@ export const initialState = {
       type: "pork",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 405,
@@ -373,6 +418,7 @@ export const initialState = {
       type: "pork",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 406,
@@ -381,6 +427,7 @@ export const initialState = {
       type: "pork",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 407,
@@ -389,6 +436,7 @@ export const initialState = {
       type: "pork",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 408,
@@ -397,6 +445,7 @@ export const initialState = {
       type: "pork",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 500,
@@ -405,6 +454,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 501,
@@ -413,6 +463,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 502,
@@ -421,6 +472,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 503,
@@ -429,6 +481,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 504,
@@ -437,6 +490,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 505,
@@ -445,6 +499,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 506,
@@ -453,6 +508,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 507,
@@ -461,6 +517,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 508,
@@ -469,6 +526,7 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 509,
@@ -477,7 +535,9 @@ export const initialState = {
       type: "seafood",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
+
     {
       id: 600,
       dish: "Szechuan Green Beans",
@@ -485,6 +545,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 601,
@@ -493,6 +554,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 602,
@@ -501,6 +563,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 603,
@@ -509,6 +572,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 604,
@@ -517,6 +581,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 605,
@@ -525,6 +590,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 606,
@@ -533,6 +599,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 607,
@@ -541,6 +608,7 @@ export const initialState = {
       type: "vegetable",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 700,
@@ -549,6 +617,7 @@ export const initialState = {
       type: "chef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 701,
@@ -557,6 +626,7 @@ export const initialState = {
       type: "chef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 702,
@@ -565,6 +635,7 @@ export const initialState = {
       type: "chef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 703,
@@ -573,6 +644,7 @@ export const initialState = {
       type: "chef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
     {
       id: 704,
@@ -581,6 +653,7 @@ export const initialState = {
       type: "chef",
       notes: "",
       quantity: 0,
+      spicy: false,
     },
   ],
 };
