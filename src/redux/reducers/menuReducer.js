@@ -4,7 +4,6 @@ import { initialState } from "../data/data";
 function menuReducer(state = initialState, action) {
   switch (action.type) {
     case "FILTER_ALL":
-      console.log(initialState.items);
       return {
         ...state,
         items: [...initialState.items],
