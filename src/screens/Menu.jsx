@@ -3,18 +3,16 @@ import MenuModal from "../components/MenuModal";
 import FilterLink from "../components/FilterLink";
 import { useSelector, useDispatch } from "react-redux";
 import { ListItem } from "react-native-elements";
-import { Icon } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
+import { Icon } from "react-native-elements";
 import {
   StyleSheet,
   View,
   FlatList,
   TouchableOpacity,
   ScrollView,
-  //useWindowDimensions,
 } from "react-native";
-//import { UserContext } from "../screens/Main";
-//import { List, Divider } from "react-native-paper";
+
 //import { soupSelector, allSelector } from "../redux/selectors";
 import {
   getMenu,
