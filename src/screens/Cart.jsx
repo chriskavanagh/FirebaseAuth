@@ -1,8 +1,10 @@
 import React from "react";
-import { DataTable } from "react-native-paper";
-import { AntDesign } from "@expo/vector-icons";
-import { StyleSheet, View, Text } from "react-native";
+//import { AntDesign } from "@expo/vector-icons";
+import ListItem from "../components/ListItem";
+import { Button } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
+import { StyleSheet, View, FlatList } from "react-native";
+import ListItemSeperator from "../components/ListItemSeperator";
 
 export default function Cart() {
   const [quantity, setQuantity] = React.useState(1);
@@ -10,52 +12,27 @@ export default function Cart() {
   //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
   console.log(cart);
+
   return (
     <View style={{ flex: 1 }}>
-      {cart.length === 0 && (
-        <View>
-          <Text>Your Cart Is Empty! Please Buy Something!!</Text>
-        </View>
-      )}
-
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>Dish</DataTable.Title>
-          <DataTable.Title numeric>Quantity</DataTable.Title>
-          <DataTable.Title numeric>Price</DataTable.Title>
-        </DataTable.Header>
-        {cart.length > 0 &&
-          cart.map((item) => {
-            return (
-              <DataTable.Row key={item.id}>
-                <DataTable.Cell>{item.dish}</DataTable.Cell>
-
-                <DataTable.Cell numeric>
-                  <AntDesign
-                    iconStyle={styles.icon}
-                    name="minuscircleo"
-                    size={20}
-                    color="black"
-                    onPress={() =>
-                      setQuantity(quantity >= 2 ? quantity - 1 : quantity)
-                    }
-                  />
-                  {item.quantity}
-                  <AntDesign
-                    iconStyle={styles.icon}
-                    name="pluscircleo"
-                    size={20}
-                    color="black"
-                    onPress={() => setQuantity(quantity + 1)}
-                  />
-                </DataTable.Cell>
-                <DataTable.Cell numeric>
-                  ${item.price.toFixed(2)}
-                </DataTable.Cell>
-              </DataTable.Row>
-            );
-          })}
-      </DataTable>
+      <FlatList
+        data={cart}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <ListItem
+            item={item}
+            onPress={() => console.log("Item selected", item)}
+          />
+        )}
+        ItemSeparatorComponent={ListItemSeperator}
+      />
+      <View style={styles.btn}>
+        <Button
+          title="Checkout"
+          type="outline"
+          onPress={() => console.log(quantity)}
+        />
+      </View>
     </View>
   );
 }
@@ -63,5 +40,9 @@ export default function Cart() {
 const styles = StyleSheet.create({
   icon: {
     paddingHorizontal: 5,
+  },
+  btn: {
+    marginHorizontal: 10,
+    marginBottom: 10,
   },
 });

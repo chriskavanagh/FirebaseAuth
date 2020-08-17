@@ -18,7 +18,7 @@ export default function MenuModal(props) {
   const cart = useSelector((state) => state.cartReducer.cart);
   const user = useSelector((state) => state.userReducer.user);
   //console.log(user);
-  console.log(cart);
+  //console.log(cart);
 
   // toggle for snackbar
   const onToggleSnackBar = () => setVisible(!visible);
