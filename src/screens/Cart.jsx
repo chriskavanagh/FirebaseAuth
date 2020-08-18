@@ -27,7 +27,7 @@ export default function Cart() {
         <Button
           title="Checkout"
           type="outline"
-          onPress={() => console.log(quantity)}
+          onPress={() => console.log("test")}
         />
       </View>
     </View>
