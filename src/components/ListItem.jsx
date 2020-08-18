@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   dish: {
-    fontSize: 19,
+    fontSize: 17,
     marginHorizontal: 1,
     fontWeight: "bold",
   },
   price: {
-    fontSize: 19,
+    fontSize: 17,
     marginHorizontal: 1,
   },
   quantity: {

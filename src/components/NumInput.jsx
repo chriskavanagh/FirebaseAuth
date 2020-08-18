@@ -23,17 +23,17 @@ export default function NumInput({ item }) {
     <View style={styles.container}>
       <AntDesign
         name="minuscircleo"
-        size={36}
+        size={32}
         color="#CD5C5C"
         //onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
         onPress={() => decrease(quantity)}
       />
-      <Text style={{ marginHorizontal: 10, fontSize: 21, fontWeight: "bold" }}>
+      <Text style={{ marginHorizontal: 10, fontSize: 17, fontWeight: "bold" }}>
         {quantity}
       </Text>
       <AntDesign
         name="pluscircleo"
-        size={36}
+        size={32}
         color="#228B22"
         //onPress={() => setQuantity(quantity + 1)}
         onPress={() => increase(quantity)}
