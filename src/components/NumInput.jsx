@@ -28,7 +28,7 @@ export default function NumInput({ item }) {
         //onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
         onPress={() => decrease(quantity)}
       />
-      <Text style={{ marginHorizontal: 10, fontSize: 17, fontWeight: "bold" }}>
+      <Text style={{ marginHorizontal: 10, fontSize: 18, fontWeight: "bold" }}>
         {quantity}
       </Text>
       <AntDesign

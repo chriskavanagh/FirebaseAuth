@@ -1,19 +1,8 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { StyleSheet, Text, View } from "react-native";
-//import NumericInput from "react-native-numeric-input";
-//import { TouchableHighlight } from "react-native-gesture-handler";
-//import {addQuantity} from "../redux/actions/cartActions";
 import NumInput from "./NumInput";
 
 export default function ListItem({ item, quantity }) {
-  //const [quantity, setQuantity] = React.useState(1);
-  //const dispatch = useDispatch();
-
-  /* React.useEffect(() => {
-    dispatch(addQuantity(item.id));
-  },[quantity]) */
-
   console.log(`ListItem - ${quantity}`);
   return (
     <View style={styles.container}>

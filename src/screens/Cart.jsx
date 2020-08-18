@@ -3,8 +3,10 @@ import React from "react";
 import ListItem from "../components/ListItem";
 import { Button } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 import ListItemSeperator from "../components/ListItemSeperator";
+import ListEmptyComp from "../components/ListEmptyComp";
+import ListHeaderComp from "../components/ListHeaderComp";
 
 export default function Cart() {
   //const [quantity, setQuantity] = React.useState(1);
@@ -22,6 +24,8 @@ export default function Cart() {
           <ListItem item={item} quantity={item.quantity} />
         )}
         ItemSeparatorComponent={ListItemSeperator}
+        ListEmptyComponent={ListEmptyComp}
+        ListHeaderComponent={ListHeaderComp}
       />
       <View style={styles.btn}>
         <Button
@@ -40,6 +44,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     marginHorizontal: 10,
-    marginBottom: 10,
+    marginVertical: 10,
   },
 });
