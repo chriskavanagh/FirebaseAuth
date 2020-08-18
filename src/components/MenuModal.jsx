@@ -26,7 +26,7 @@ export default function MenuModal(props) {
 
   // add item to cart
   const myaddItem = (id, value, notes) => {
-    dispatch(addItem(id, value, notes));
+    dispatch(addItem(id, value, notes.trim()));
     onToggleSnackBar();
     setQuantity(1);
     setNotes("");

@@ -46,7 +46,12 @@ export default function Menu({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <MenuModal isVisible={isVisible} item={data} close={closeModal} />
+      <MenuModal
+        isVisible={isVisible}
+        item={data}
+        close={closeModal}
+        animationType="slide"
+      />
       <View>
         <AntDesign
           name="swap"
