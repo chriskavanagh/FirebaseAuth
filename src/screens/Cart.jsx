@@ -7,8 +7,8 @@ import { StyleSheet, View, FlatList } from "react-native";
 import ListItemSeperator from "../components/ListItemSeperator";
 
 export default function Cart() {
-  const [quantity, setQuantity] = React.useState(1);
-  console.log(quantity);
+  //const [quantity, setQuantity] = React.useState(1);
+  //console.log(quantity);
   //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
   console.log(cart);
@@ -19,10 +19,7 @@ export default function Cart() {
         data={cart}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <ListItem
-            item={item}
-            onPress={() => console.log("Item selected", item)}
-          />
+          <ListItem item={item} quantity={item.quantity} />
         )}
         ItemSeparatorComponent={ListItemSeperator}
       />

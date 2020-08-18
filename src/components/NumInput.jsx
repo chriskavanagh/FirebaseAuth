@@ -1,28 +1,50 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
+import { addQuantity, removeQuantity } from "../redux/actions/cartActions";
 
-export default function NumInput(props) {
-  const [quantity, setQuantity] = useState(1);
+export default function NumInput({ item }) {
+  const [quantity, setQuantity] = useState(item.quantity);
+  console.log(`Quan=${quantity}`);
+  const dispatch = useDispatch();
+
+  function increase(quantity) {
+    setQuantity(quantity + 1);
+    dispatch(addQuantity(item.id));
+  }
+
+  function decrease(quantity) {
+    setQuantity(quantity >= 2 ? quantity - 1 : quantity);
+    dispatch(removeQuantity(item.id));
+  }
+
   return (
-    <View style={{ flex: 1, flexDirection: "row", marginTop: 45 }}>
+    <View style={styles.container}>
       <AntDesign
         name="minuscircleo"
-        size={52}
-        color="black"
-        onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
+        size={36}
+        color="#CD5C5C"
+        //onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
+        onPress={() => decrease(quantity)}
       />
-      <Text style={{ marginHorizontal: 14, fontSize: 37, fontWeight: "bold" }}>
+      <Text style={{ marginHorizontal: 10, fontSize: 21, fontWeight: "bold" }}>
         {quantity}
       </Text>
       <AntDesign
         name="pluscircleo"
-        size={52}
-        color="black"
-        onPress={() => setQuantity(quantity + 1)}
+        size={36}
+        color="#228B22"
+        //onPress={() => setQuantity(quantity + 1)}
+        onPress={() => increase(quantity)}
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    padding: 5,
+  },
+});
