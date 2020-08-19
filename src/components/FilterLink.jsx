@@ -5,16 +5,17 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 
 export default function FilterLink({ dispatch, action, children }) {
   return (
-    <TouchableOpacity style={{ marginHorizontal: 2 }}>
+    <TouchableOpacity style={{ marginHorizontal: 3 }}>
       <Button
         buttonStyle={{
           borderColor: "#580000",
           backgroundColor: "#D8D8D8",
-          borderWidth: 2,
-          width: 120,
+          borderWidth: 3,
+          width: 121,
           borderRadius: 10,
+          padding: 7,
         }}
-        titleStyle={{ marginLeft: 5, color: "black" }}
+        titleStyle={{ marginLeft: 5, color: "black", fontWeight: "bold" }}
         style={styles.subText}
         icon={<Icon name="search" size={18} color="#580000" />}
         title={children}
@@ -29,8 +30,8 @@ export default function FilterLink({ dispatch, action, children }) {
 
 const styles = StyleSheet.create({
   subText: {
-    marginBottom: 10,
-    marginTop: 10,
+    marginBottom: 8,
+    marginTop: 8,
     //backgroundColor: "#D8D8D8",
     //borderWidth: 2,
     //borderColor: "#580000",

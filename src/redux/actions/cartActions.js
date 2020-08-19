@@ -1,12 +1,3 @@
-/* export const addItem = (id, quantity, notes) => {
-  return {
-    type: "ADD_ITEM",
-    id,
-    quantity,
-    notes,
-  };
-}; */
-
 export const addItem = (id, quantity, notes) => {
   return {
     type: "ADD_ITEM",
@@ -46,6 +37,15 @@ export const removeQuantity = (id) => {
 };
 
 // ---------------------------------------------------------------------------------------//
+/* export const addItem = (id, quantity, notes) => {
+  return {
+    type: "ADD_ITEM",
+    id,
+    quantity,
+    notes,
+  };
+}; */
+
 /* export const addItem = (id) => {
   dispatch({
     type: "ADD_ITEM",

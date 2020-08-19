@@ -6,7 +6,7 @@ import { addQuantity, removeQuantity } from "../redux/actions/cartActions";
 
 export default function NumInput({ item }) {
   const [quantity, setQuantity] = useState(item.quantity);
-  console.log(`Quan=${quantity}`);
+  console.log(`Quantity=${quantity}`);
   const dispatch = useDispatch();
 
   function increase(quantity) {
