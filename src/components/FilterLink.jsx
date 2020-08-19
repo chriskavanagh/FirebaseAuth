@@ -5,7 +5,7 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 
 export default function FilterLink({ dispatch, action, children }) {
   return (
-    <TouchableOpacity style={{ marginHorizontal: 3 }}>
+    <TouchableOpacity style={{ marginHorizontal: 3, marginBottom: 15 }}>
       <Button
         buttonStyle={{
           borderColor: "#580000",

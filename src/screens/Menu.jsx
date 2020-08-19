@@ -57,7 +57,7 @@ export default function Menu({ navigation }) {
           name="swap"
           size={24}
           color="black"
-          style={{ marginTop: 10, marginLeft: 5 }}
+          style={{ marginTop: 1, marginLeft: 5 }}
         />
 
         <ScrollView
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   subContainer: {
     flexDirection: "row",
