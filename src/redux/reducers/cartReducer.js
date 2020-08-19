@@ -54,7 +54,7 @@ function cartReducer(state = initialState, action) {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
-        total: state.total - itemTotal,
+        //total: state.total - itemTotal,
       };
     case "REMOVE_QUANTITY":
       let sub_cart_item = state.cart.find(

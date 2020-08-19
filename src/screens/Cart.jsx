@@ -1,13 +1,13 @@
 import React from "react";
-//import { AntDesign } from "@expo/vector-icons";
 import ListItem from "../components/ListItem";
 import { Button } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import ListItemSeperator from "../components/ListItemSeperator";
 import ListEmptyComp from "../components/ListEmptyComp";
 import ListHeaderComp from "../components/ListHeaderComp";
 import ListItemDelete from "../components/ListItemDelete";
+//import { removeItem } from "../redux/actions/cartActions";
 
 export default function Cart() {
   //const [quantity, setQuantity] = React.useState(1);
@@ -25,9 +25,7 @@ export default function Cart() {
           <ListItem
             item={item}
             quantity={item.quantity}
-            renderRightActions={() => (
-              <ListItemDelete onPress={() => console.log("Delete Me")} />
-            )}
+            renderRightActions={() => <ListItemDelete item={item} />}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
