@@ -10,8 +10,8 @@ export default function FilterLink({ dispatch, action, children }) {
         buttonStyle={{
           borderColor: "#580000",
           backgroundColor: "#D8D8D8",
-          borderWidth: 3,
-          width: 121,
+          borderWidth: 4,
+          width: 120,
           borderRadius: 10,
           padding: 7,
         }}
