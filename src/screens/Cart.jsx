@@ -7,6 +7,7 @@ import { StyleSheet, View, FlatList, Text } from "react-native";
 import ListItemSeperator from "../components/ListItemSeperator";
 import ListEmptyComp from "../components/ListEmptyComp";
 import ListHeaderComp from "../components/ListHeaderComp";
+import ListItemDelete from "../components/ListItemDelete";
 
 export default function Cart() {
   //const [quantity, setQuantity] = React.useState(1);
@@ -21,7 +22,13 @@ export default function Cart() {
         data={cart}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <ListItem item={item} quantity={item.quantity} />
+          <ListItem
+            item={item}
+            quantity={item.quantity}
+            renderRightActions={() => (
+              <ListItemDelete onPress={() => console.log("Delete Me")} />
+            )}
+          />
         )}
         ItemSeparatorComponent={ListItemSeperator}
         ListEmptyComponent={ListEmptyComp}
