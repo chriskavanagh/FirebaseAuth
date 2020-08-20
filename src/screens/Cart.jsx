@@ -1,7 +1,7 @@
 import React from "react";
 import ListItem from "../components/ListItem";
 import { Button } from "react-native-elements";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { StyleSheet, View, FlatList } from "react-native";
 import ListItemSeperator from "../components/ListItemSeperator";
 import ListEmptyComp from "../components/ListEmptyComp";

@@ -1,10 +1,15 @@
 import React from "react";
 import NumInput from "./NumInput";
+import { AntDesign } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+//import { useDispatch } from "react-redux";
+//import { removeItem } from "../redux/actions/cartActions";
+//import { PanGestureHandler } from "react-native-gesture-handler";
 
 export default function ListItem({ item, quantity, renderRightActions }) {
-  console.log(`ListItem - ${quantity}`);
+  //const dispatch = useDispatch();
+  //console.log(`ListItem - ${quantity}`);
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <View style={styles.container}>
@@ -13,6 +18,12 @@ export default function ListItem({ item, quantity, renderRightActions }) {
           <Text style={styles.price}>${item.price.toFixed(2)}</Text>
         </View>
         <NumInput item={item} />
+        <AntDesign
+          name="swap"
+          size={24}
+          color="#CD5C5C"
+          style={{ marginLeft: 15 }}
+        />
       </View>
     </Swipeable>
   );
@@ -44,3 +55,23 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+// to delete item on swipe
+/* import { PanGestureHandler } from "react-native-gesture-handler";
+   import { removeItem } from "../redux/actions/cartActions";
+
+export default function ListItem({ item, quantity, renderRightActions }) {
+  const dispatch = useDispatch();
+  //console.log(`ListItem - ${quantity}`);
+  return (
+    <PanGestureHandler onGestureEvent={() => dispatch(removeItem(item.id))}>
+      <View style={styles.container}>
+        <View style={styles.subContainer}>
+          <Text style={styles.dish}>{item.dish}</Text>
+          <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+        </View>
+        <NumInput item={item} />
+      </View>
+    </PanGestureHandler>
+  );
+} */

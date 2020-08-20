@@ -37,3 +37,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+/* export default function ListItemDelete({ item }) {
+  const dispatch = useDispatch();
+
+  /*  function deleteItem(id) {
+    console.log("Delete Button Pressed");
+    dispatch(removeItem(id));
+  } 
+
+  return (
+    <TouchableWithoutFeedback onPress={() => dispatch(removeItem(item.id))}>
+      <View style={styles.container}>
+        <Icon
+          name="trash"
+          type="font-awesome-5"
+          color="white"
+          size={36}
+          //containerStyle={{ marginRight: 3 }}
+        />
+      </View>
+    </TouchableWithoutFeedback>
+  );
+} */

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function () {
   return (
     <View style={styles.container}>
-      <Text style={styles.txt}>Swipe Left To Delete Item</Text>
+      <Text style={styles.txt}>Swipe Left & Tap To Delete Item</Text>
     </View>
   );
 }
