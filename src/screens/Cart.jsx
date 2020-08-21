@@ -10,10 +10,11 @@ import ListItemDelete from "../components/ListItemDelete";
 //import { removeItem } from "../redux/actions/cartActions";
 
 export default function Cart() {
-  //const [quantity, setQuantity] = React.useState(1);
+  const [quantity, setQuantity] = React.useState(1);
   //console.log(quantity);
   //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
+  const total = useSelector((state) => state.cartReducer.total);
   console.log(cart);
 
   return (
@@ -24,6 +25,7 @@ export default function Cart() {
         renderItem={({ item }) => (
           <ListItem
             item={item}
+            setQuantity={setQuantity}
             quantity={item.quantity}
             renderRightActions={() => <ListItemDelete item={item} />}
           />

@@ -7,7 +7,12 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 //import { removeItem } from "../redux/actions/cartActions";
 //import { PanGestureHandler } from "react-native-gesture-handler";
 
-export default function ListItem({ item, quantity, renderRightActions }) {
+export default function ListItem({
+  item,
+  quantity,
+  setQuantity,
+  renderRightActions,
+}) {
   //const dispatch = useDispatch();
   //console.log(`ListItem - ${quantity}`);
   return (
@@ -17,7 +22,7 @@ export default function ListItem({ item, quantity, renderRightActions }) {
           <Text style={styles.dish}>{item.dish}</Text>
           <Text style={styles.price}>${item.price.toFixed(2)}</Text>
         </View>
-        <NumInput item={item} />
+        <NumInput item={item} quantity={quantity} setQuantity={setQuantity} />
         <AntDesign
           name="swap"
           size={24}

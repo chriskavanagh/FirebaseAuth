@@ -1,17 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Icon } from "react-native-elements";
+import { removeItem } from "../redux/actions/cartActions";
 import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
 //import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useDispatch } from "react-redux";
-import { removeItem } from "../redux/actions/cartActions";
 
 export default function ListItemDelete({ item }) {
   const dispatch = useDispatch();
-
-  /*  function deleteItem(id) {
-    console.log("Delete Button Pressed");
-    dispatch(removeItem(id));
-  } */
 
   return (
     <TouchableWithoutFeedback onPress={() => dispatch(removeItem(item.id))}>

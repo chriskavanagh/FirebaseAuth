@@ -4,9 +4,9 @@ import { AntDesign } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
 import { addQuantity, removeQuantity } from "../redux/actions/cartActions";
 
-export default function NumInput({ item }) {
-  const [quantity, setQuantity] = useState(item.quantity);
-  console.log(`Quantity=${quantity}`);
+export default function NumInput({ item, quantity, setQuantity }) {
+  //const [quantity, setQuantity] = useState(item.quantity);
+  //console.log(`Quantity=${quantity}`);
   const dispatch = useDispatch();
 
   function increase(quantity) {
