@@ -34,12 +34,13 @@ function cartReducer(state = initialState, action) {
         addedItem.quantity = action.payload.quantity;
         addedItem.notes = action.payload.notes;
         let newTotal = state.total + addedItem.price;
-        let tax = newTotal * 0.093; // this works
+        //let tax = newTotal * 0.093; // this works
 
         return {
           ...state,
           cart: [...state.cart, addedItem],
-          total: newTotal + tax, // this works
+          //total: newTotal + tax, // this works
+          total: newTotal,
         };
       }
     case "ADD_QUANTITY":
@@ -53,13 +54,13 @@ function cartReducer(state = initialState, action) {
             ? { ...item, quantity: item.quantity + 1 }
             : item
         ),
-        total: state.total + add_cart_item.price * 0.093,
+        total: state.total + add_cart_item.price,
       };
     case "REMOVE_ITEM":
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
-        //total: state.total - itemTotal,
+        total: state.total - itemTotal,
       };
     case "REMOVE_QUANTITY":
       let sub_cart_item = state.cart.find(

@@ -16,7 +16,9 @@ export default function NumInput({ item, quantity, setQuantity }) {
 
   function decrease(quantity) {
     setQuantity(quantity >= 2 ? quantity - 1 : quantity);
-    dispatch(removeQuantity(item.id));
+    // keeps dispatch from being called if quantity is 1
+    // otherwise will get negative values on sub/total/tax
+    quantity >= 2 ? dispatch(removeQuantity(item.id)) : console.log("done");
   }
 
   return (
