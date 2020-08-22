@@ -12,18 +12,13 @@ function cartReducer(state = initialState, action) {
       let addedItem = state.items.find((item) => item.id === action.payload.id);
       //addedItem.quantity = action.payload.quantity;
       //addedItem.notes = action.payload.notes;
-      /* return {
-        ...state,
-        cart: [...state.cart, addedItem],
-        total: 0,
-      }; */
+
       let existed_item = state.cart.find(
         (item) => action.payload.id === item.id
       );
       if (existed_item) {
         console.log(`Existing ${JSON.stringify(existed_item)}`);
         //existed_item.quantity += 1;
-
         // let tax = state.total * 0.093;
         return {
           ...state,

@@ -3,7 +3,7 @@ import NumInput from "./NumInput";
 import { AntDesign } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
-//import { useDispatch } from "react-redux";
+
 //import { removeItem } from "../redux/actions/cartActions";
 //import { PanGestureHandler } from "react-native-gesture-handler";
 
@@ -13,7 +13,6 @@ export default function ListItem({
   setQuantity,
   renderRightActions,
 }) {
-  //const dispatch = useDispatch();
   //console.log(`ListItem - ${quantity}`);
   return (
     <Swipeable renderRightActions={renderRightActions}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";

@@ -8,6 +8,7 @@ import ListEmptyComp from "../components/ListEmptyComp";
 import ListHeaderComp from "../components/ListHeaderComp";
 import ListItemDelete from "../components/ListItemDelete";
 //import { removeItem } from "../redux/actions/cartActions";
+import ListItemFooter from "../components/ListItemFooter";
 
 export default function Cart() {
   const [quantity, setQuantity] = React.useState(1);
@@ -33,6 +34,7 @@ export default function Cart() {
         ItemSeparatorComponent={ListItemSeperator}
         ListEmptyComponent={ListEmptyComp}
         ListHeaderComponent={ListHeaderComp}
+        ListFooterComponent={ListItemFooter}
       />
       <View style={styles.btn}>
         <Button
