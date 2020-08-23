@@ -57,6 +57,8 @@ function cartReducer(state = initialState, action) {
         total: state.total + add_cart_item.price,
       };
     case "REMOVE_ITEM":
+      let inCart = state.cart.find((item) => action.payload.id === item.id);
+      let itemTotal = inCart.quantity * inCart.price.toFixed(2);
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),

@@ -9,7 +9,7 @@ export default function Total() {
   return (
     <View style={styles.container}>
       <Text style={styles.txt}>Subtotal: ${sub.toFixed(2)}</Text>
-      <Text style={styles.txt}>Tax: ${tax.toFixed(2)}</Text>
+      <Text style={styles.tax}>Tax: ${tax.toFixed(2)}</Text>
       <Text style={styles.total}>Total: ${total.toFixed(2)}</Text>
     </View>
   );
@@ -25,6 +25,13 @@ const styles = StyleSheet.create({
   txt: {
     fontStyle: "italic",
     fontSize: 19,
+    marginTop: 20,
+  },
+  tax: {
+    fontStyle: "italic",
+    fontSize: 19,
+    marginBottom: 5,
+    borderBottomWidth: 2,
   },
   total: {
     fontSize: 20,
