@@ -15,8 +15,8 @@ export default function Cart() {
   //console.log(quantity);
   //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
-  const total = useSelector((state) => state.cartReducer.total);
-  console.log(cart);
+  //const total = useSelector((state) => state.cartReducer.total);
+  //console.log(cart);
 
   return (
     <View style={{ flex: 1 }}>

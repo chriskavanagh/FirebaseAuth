@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { StyleSheet, Text, View } from "react-native";
-// 42FORYOU
+
 export default function Total() {
   const sub = useSelector((state) => state.cartReducer.total);
   const tax = sub * 0.093;
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontSize: 19,
     marginBottom: 5,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
   },
   total: {
     fontSize: 20,

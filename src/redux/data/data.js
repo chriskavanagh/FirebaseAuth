@@ -3,7 +3,7 @@ export const initialState = {
     {
       id: 101,
       dish: "Egg Drop Soup",
-      price: 2.1,
+      price: 2.75,
       type: "soup",
       notes: "",
       quantity: 0,
@@ -12,7 +12,7 @@ export const initialState = {
     {
       id: 102,
       dish: "Wonton Soup",
-      price: 2.1,
+      price: 2.95,
       type: "soup",
       notes: "",
       quantity: 0,
@@ -21,7 +21,7 @@ export const initialState = {
     {
       id: 103,
       dish: "Hot Sour Soup",
-      price: 2.1,
+      price: 2.95,
       type: "soup",
       notes: "",
       quantity: 0,
@@ -30,7 +30,7 @@ export const initialState = {
     {
       id: 104,
       dish: "Miso Soup",
-      price: 2.1,
+      price: 2.75,
       type: "soup",
       notes: "",
       quantity: 0,
@@ -39,7 +39,7 @@ export const initialState = {
     {
       id: 105,
       dish: "Dragon & Phoenix Soup",
-      price: 2.1,
+      price: 8.25,
       type: "soup",
       notes: "",
       quantity: 0,
@@ -48,7 +48,7 @@ export const initialState = {
     {
       id: 106,
       dish: "Combo Wonton Soup",
-      price: 2.1,
+      price: 8.95,
       type: "soup",
       notes: "",
       quantity: 0,
@@ -84,7 +84,7 @@ export const initialState = {
     {
       id: 110,
       dish: "Seafood Curry Soup",
-      price: 2.1,
+      price: 8.95,
       type: "soup",
       notes: "",
       quantity: 0,

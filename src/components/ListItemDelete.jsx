@@ -26,7 +26,7 @@ export default function ListItemDelete({ item }) {
 const styles = StyleSheet.create({
   container: {
     //flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "#dc3545",
     width: 90,
     justifyContent: "center",
     alignItems: "center",

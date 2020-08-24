@@ -9,10 +9,10 @@ const initialState = {
 function cartReducer(state = initialState, action) {
   switch (action.type) {
     case "ADD_ITEM":
+      // find item in menu
       let addedItem = state.items.find((item) => item.id === action.payload.id);
-      //addedItem.quantity = action.payload.quantity;
-      //addedItem.notes = action.payload.notes;
 
+      // check if item is already in cart
       let existed_item = state.cart.find(
         (item) => action.payload.id === item.id
       );

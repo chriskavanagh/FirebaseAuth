@@ -27,7 +27,7 @@ export default function NumInput({ item, quantity, setQuantity }) {
         <AntDesign
           name="minuscircleo"
           size={32}
-          color="#CD5C5C"
+          color="#343a40"
           //onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
           onPress={() => decrease(quantity)}
         />
@@ -39,7 +39,7 @@ export default function NumInput({ item, quantity, setQuantity }) {
         <AntDesign
           name="pluscircleo"
           size={32}
-          color="#228B22"
+          color="#343a40"
           //onPress={() => setQuantity(quantity + 1)}
           onPress={() => increase(quantity)}
         />
