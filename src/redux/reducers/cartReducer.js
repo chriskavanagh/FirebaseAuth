@@ -33,7 +33,7 @@ function cartReducer(state = initialState, action) {
       } else {
         addedItem.quantity = action.payload.quantity;
         addedItem.notes = action.payload.notes;
-        let newTotal = state.total + addedItem.price;
+        let newTotal = state.total + addedItem.price * action.payload.quantity;
         //let tax = newTotal * 0.093; // this works
 
         return {

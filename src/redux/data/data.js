@@ -291,7 +291,7 @@ export const initialState = {
     {
       id: 305,
       dish: "Beef & Garlic Sauce",
-      price: 2.1,
+      price: 12.5,
       type: "beef",
       notes: "",
       quantity: 0,
@@ -354,7 +354,7 @@ export const initialState = {
     {
       id: 312,
       dish: "Beef/Tomato w/Mixed Veg",
-      price: 2.1,
+      price: 12.5,
       type: "beef",
       notes: "",
       quantity: 0,
