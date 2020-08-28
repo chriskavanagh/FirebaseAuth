@@ -1,11 +1,11 @@
 import React from "react";
+import AppTextInput from "./AppTextInput";
+import { Snackbar } from "react-native-paper";
 import { Button } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
 import { addItem } from "../redux/actions/cartActions";
-import { useSelector, useDispatch } from "react-redux";
-import { Snackbar } from "react-native-paper";
-import AppTextInput from "./AppTextInput";
 import NumericInput from "react-native-numeric-input";
+import { useSelector, useDispatch } from "react-redux";
 import takeoutsquare from "../../assets/takeoutsquare.png";
 import { StyleSheet, View, Modal, Text, ScrollView, Image } from "react-native";
 

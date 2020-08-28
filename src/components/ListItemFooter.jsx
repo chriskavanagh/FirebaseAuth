@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Total() {
-  const sub = useSelector((state) => state.cartReducer.total);
+  const sub = useSelector((state) => state.cartReducer.subTotal);
   const tax = sub * 0.093;
   const total = sub + tax;
   return (

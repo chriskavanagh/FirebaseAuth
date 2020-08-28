@@ -3,7 +3,7 @@ import { initialState as data } from "../data/data";
 const initialState = {
   items: data.items,
   cart: [],
-  total: +(0).toFixed(2),
+  subTotal: +(0).toFixed(2),
 };
 
 function cartReducer(state = initialState, action) {
@@ -19,7 +19,7 @@ function cartReducer(state = initialState, action) {
       if (existed_item) {
         console.log(`Existing ${JSON.stringify(existed_item)}`);
         //existed_item.quantity += 1;
-        // let tax = state.total * 0.093;
+        // let tax = state.subTotal * 0.093;
         return {
           ...state,
           cart: state.cart.map((item) =>
@@ -27,20 +27,21 @@ function cartReducer(state = initialState, action) {
               ? { ...existed_item, quantity: existed_item.quantity + 1 }
               : item
           ),
-          // total: state.total + addedItem.price,
-          total: state.total + existed_item.price,
+          // subTotal: state.subTotal + addedItem.price,
+          subTotal: state.subTotal + existed_item.price,
         };
       } else {
         addedItem.quantity = action.payload.quantity;
         addedItem.notes = action.payload.notes;
-        let newTotal = state.total + addedItem.price * action.payload.quantity;
+        let newTotal =
+          state.subTotal + addedItem.price * action.payload.quantity;
         //let tax = newTotal * 0.093; // this works
 
         return {
           ...state,
           cart: [...state.cart, addedItem],
-          //total: newTotal + tax, // this works
-          total: newTotal,
+          //subTotal: newTotal + tax, // this works
+          subTotal: newTotal,
         };
       }
     case "ADD_QUANTITY":
@@ -54,7 +55,7 @@ function cartReducer(state = initialState, action) {
             ? { ...item, quantity: item.quantity + 1 }
             : item
         ),
-        total: state.total + add_cart_item.price,
+        subTotal: state.subTotal + add_cart_item.price,
       };
     case "REMOVE_ITEM":
       let inCart = state.cart.find((item) => action.payload.id === item.id);
@@ -62,7 +63,7 @@ function cartReducer(state = initialState, action) {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
-        total: state.total - itemTotal,
+        subTotal: state.subTotal - itemTotal,
       };
     case "REMOVE_QUANTITY":
       let sub_cart_item = state.cart.find(
@@ -79,7 +80,7 @@ function cartReducer(state = initialState, action) {
               }
             : item
         ),
-        total: state.total - sub_cart_item.price,
+        subTotal: state.subTotal - sub_cart_item.price,
       };
 
     default:
