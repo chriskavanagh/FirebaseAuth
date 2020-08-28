@@ -2,10 +2,10 @@ import React from "react";
 //import { pics } from "../styles/pic_data";
 //import { Text, TouchableOpacity } from "react-native";
 //import EStyleSheet from "react-native-extended-stylesheet";
-import { useNavigation } from "@react-navigation/native";
-import { Button } from "react-native-elements";
 //import * as Linking from "expo-linking";
-import * as WebBrowser from "expo-web-browser";
+//import * as WebBrowser from "expo-web-browser";
+import { Button } from "react-native-elements";
+import { useNavigation } from "@react-navigation/native";
 
 export default (props) => {
   const navigation = useNavigation();
@@ -23,6 +23,7 @@ export default (props) => {
         borderWidth: 4,
         width: 380,
         marginTop: 16,
+        borderRadius: 10,
       }}
       titleStyle={{ color: "#f96332" }}
     />
