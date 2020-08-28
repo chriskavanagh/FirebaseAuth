@@ -1,20 +1,22 @@
 import React from "react";
-//import { AntDesign } from "@expo/vector-icons";
 import ListItem from "../components/ListItem";
 import { Button } from "react-native-elements";
-import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { useSelector } from "react-redux";
+import { StyleSheet, View, FlatList } from "react-native";
 import ListItemSeperator from "../components/ListItemSeperator";
 import ListEmptyComp from "../components/ListEmptyComp";
 import ListHeaderComp from "../components/ListHeaderComp";
 import ListItemDelete from "../components/ListItemDelete";
+//import { removeItem } from "../redux/actions/cartActions";
+import ListItemFooter from "../components/ListItemFooter";
 
 export default function Cart() {
-  //const [quantity, setQuantity] = React.useState(1);
+  const [quantity, setQuantity] = React.useState(1);
   //console.log(quantity);
   //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
-  console.log(cart);
+  //const total = useSelector((state) => state.cartReducer.total);
+  //console.log(cart);
 
   return (
     <View style={{ flex: 1 }}>
@@ -24,15 +26,15 @@ export default function Cart() {
         renderItem={({ item }) => (
           <ListItem
             item={item}
+            setQuantity={setQuantity}
             quantity={item.quantity}
-            renderRightActions={() => (
-              <ListItemDelete onPress={() => console.log("Delete Me")} />
-            )}
+            renderRightActions={() => <ListItemDelete item={item} />}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
         ListEmptyComponent={ListEmptyComp}
         ListHeaderComponent={ListHeaderComp}
+        ListFooterComponent={ListItemFooter}
       />
       <View style={styles.btn}>
         <Button

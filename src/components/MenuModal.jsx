@@ -1,12 +1,13 @@
 import React from "react";
+import AppTextInput from "./AppTextInput";
+import { Snackbar } from "react-native-paper";
 import { Button } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
 import { addItem } from "../redux/actions/cartActions";
-import { useSelector, useDispatch } from "react-redux";
-import { Snackbar } from "react-native-paper";
-import AppTextInput from "./AppTextInput";
 import NumericInput from "react-native-numeric-input";
-import { StyleSheet, View, Modal, Text, ScrollView } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import takeoutsquare from "../../assets/takeoutsquare.png";
+import { StyleSheet, View, Modal, Text, ScrollView, Image } from "react-native";
 
 export default function MenuModal(props) {
   const [quantity, setQuantity] = React.useState(1);
@@ -26,6 +27,7 @@ export default function MenuModal(props) {
 
   // add item to cart
   const myaddItem = (id, value, notes) => {
+    console.log(`Modal Quantity-${quantity}`);
     dispatch(addItem(id, value, notes.trim()));
     onToggleSnackBar();
     setQuantity(1);
@@ -37,6 +39,7 @@ export default function MenuModal(props) {
       <MaterialIcons name="close" size={36} onPress={props.close} />
       <ScrollView>
         <View style={styles.container}>
+          <Image source={takeoutsquare} style={styles.img} />
           <Text style={styles.subtxt}>{props.item.dish}</Text>
           {/* <Text style={styles.subtxt}>{user.email}</Text> */}
           <Text style={styles.pricetxt}>
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
   },
   pricetxt: {
     fontSize: 18,
+    marginBottom: 15,
   },
   txtInput: {
     height: 45,
@@ -124,5 +128,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     backgroundColor: "#E0E0E0",
     borderRadius: 5,
+  },
+  img: {
+    width: 110,
+    height: 110,
+    marginBottom: 25,
   },
 });

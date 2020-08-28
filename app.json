@@ -7,9 +7,9 @@
     "slug": "FirebaseAuth",
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/takeoutsquare.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/takeoutsquare.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

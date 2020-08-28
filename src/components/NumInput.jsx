@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { addQuantity, removeQuantity } from "../redux/actions/cartActions";
 
-export default function NumInput({ item }) {
-  const [quantity, setQuantity] = useState(item.quantity);
-  console.log(`Quantity=${quantity}`);
+export default function NumInput({ item, quantity, setQuantity }) {
+  //const [quantity, setQuantity] = useState(item.quantity);
+  //console.log(`Quantity=${quantity}`);
   const dispatch = useDispatch();
 
   function increase(quantity) {
@@ -16,28 +16,34 @@ export default function NumInput({ item }) {
 
   function decrease(quantity) {
     setQuantity(quantity >= 2 ? quantity - 1 : quantity);
-    dispatch(removeQuantity(item.id));
+    // keeps dispatch from being called if quantity is 1 or less
+    // otherwise will get negative values on sub/total/tax
+    quantity >= 2 ? dispatch(removeQuantity(item.id)) : console.log("done");
   }
 
   return (
     <View style={styles.container}>
-      <AntDesign
-        name="minuscircleo"
-        size={32}
-        color="#CD5C5C"
-        //onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
-        onPress={() => decrease(quantity)}
-      />
+      <TouchableOpacity>
+        <AntDesign
+          name="minuscircleo"
+          size={32}
+          color="#343a40"
+          //onPress={() => setQuantity(quantity >= 2 ? quantity - 1 : quantity)}
+          onPress={() => decrease(quantity)}
+        />
+      </TouchableOpacity>
       <Text style={{ marginHorizontal: 10, fontSize: 18, fontWeight: "bold" }}>
         {quantity}
       </Text>
-      <AntDesign
-        name="pluscircleo"
-        size={32}
-        color="#228B22"
-        //onPress={() => setQuantity(quantity + 1)}
-        onPress={() => increase(quantity)}
-      />
+      <TouchableOpacity>
+        <AntDesign
+          name="pluscircleo"
+          size={32}
+          color="#343a40"
+          //onPress={() => setQuantity(quantity + 1)}
+          onPress={() => increase(quantity)}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
