@@ -1,10 +1,7 @@
 import React from "react";
-//import AddNotes from "../screens/AddNotes";
-//import ViewNotes from "../screens/ViewNotes";
 import HomePage from "../screens/Home";
 import NavHeader from "../components/NavHeader";
 import { createStackNavigator } from "@react-navigation/stack";
-//import RegistrationScreen from "../screens/RegistrationScreen";
 
 const Stack = createStackNavigator();
 

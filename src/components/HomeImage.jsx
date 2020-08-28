@@ -1,6 +1,6 @@
 import React from "react";
 import Pic8 from "../../assets/pics/pic8.jpg";
-import { View, ImageBackground, Text } from "react-native";
+import { View, ImageBackground } from "react-native";
 import EStyleSheet, { absoluteFill } from "react-native-extended-stylesheet";
 
 export default () => {

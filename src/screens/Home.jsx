@@ -1,5 +1,4 @@
 import React from "react";
-//import { pics } from "../styles/pic_data";
 import { Zocial } from "@expo/vector-icons";
 import HomeImage from "../components/HomeImage";
 import HomeButton from "../components/HomeButton";

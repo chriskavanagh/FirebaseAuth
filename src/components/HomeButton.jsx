@@ -9,13 +9,13 @@ import * as WebBrowser from "expo-web-browser";
 
 export default (props) => {
   const navigation = useNavigation();
-  const handlePress = () => {
+  /* const handlePress = () => {
     //Linking.openURL("https://expo.io");
     WebBrowser.openBrowserAsync("https://expo.io");
-  };
+  }; */
   return (
     <Button
-      onPress={handlePress}
+      onPress={() => navigation.navigate("Food")}
       title="Order Online!"
       type="outline"
       buttonStyle={{

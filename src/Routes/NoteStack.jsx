@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 export default () => {
   return (
     <Tab.Navigator
-      initialRouteName="ViewNotes"
+      initialRouteName="Home"
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: "#DCDCDC" }}
@@ -21,10 +21,10 @@ export default () => {
       }}
     >
       <Tab.Screen
-        name="Notes"
+        name="Home"
         component={RootStack}
         options={{
-          tabBarLabel: "Notes",
+          tabBarLabel: "Home",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color={color} size={25} />
           ),
