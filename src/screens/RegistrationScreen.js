@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firebase } from "../firebase/config";
+import firebase from "../firebase/config";
 import {
   Image,
   Text,

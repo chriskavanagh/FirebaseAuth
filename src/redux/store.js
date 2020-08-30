@@ -1,7 +1,22 @@
-import { createStore, applyMiddleware } from "redux";
+/* import thunk from "redux-thunk";
+import firebase from "../firebase/config";
 import rootReducer from "./reducers/rootReducer";
-import thunk from "redux-thunk";
+//import { reduxFirestore, getFirestore } from "redux-firestore";
+//import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
+import { createStore, applyMiddleware, compose } from "redux";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import { createFirestoreInstance, getFirestore } from "redux-firestore";
 
-export default store;
+// const store = createStore(rootReducer, applyMiddleware(thunk));
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reactReduxFirebase(firebase), // redux binding for firebase
+    reduxFirestore(firebase) // redux bindings for firestore
+  )
+);
+
+export default store; */

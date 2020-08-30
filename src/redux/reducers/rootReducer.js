@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import menuReducer from "./menuReducer";
-import notesReducer from "./notesReducer";
+//import notesReducer from "./notesReducer";
 import userReducer from "./userReducer";
 import cartReducer from "./cartReducer";
+import { firestoreReducer } from "redux-firestore";
+import { firebaseReducer } from "react-redux-firebase";
 
 /* export default combineReducers({
   notesReducer,
@@ -10,10 +12,12 @@ import cartReducer from "./cartReducer";
 }); */
 
 const rootReducer = combineReducers({
-  notesReducer,
+  //notesReducer,
   menuReducer,
   userReducer,
   cartReducer,
+  firestore: firestoreReducer,
+  firebase: firebaseReducer,
 });
 
 export default rootReducer;

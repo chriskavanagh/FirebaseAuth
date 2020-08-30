@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import Header from "../components/Header";
 import { Text, FAB, List } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,7 +16,7 @@ function ViewNotes({ navigation }) {
   /*  const addNote = (note) => {
     note.id = notes.length + 1;
     setNotes([...notes, note]);
-  }; */
+  }; 
   return (
     <>
       <Header titleText="Simple Note Taker" />
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ViewNotes;
+export default ViewNotes; */

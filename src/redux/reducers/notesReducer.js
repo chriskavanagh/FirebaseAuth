@@ -1,6 +1,6 @@
 //import remove from "lodash.remove";
 
-const initialState = [];
+/* const initialState = [];
 
 function notesReducer(state = initialState, action) {
   switch (action.type) {
@@ -22,7 +22,7 @@ function notesReducer(state = initialState, action) {
   }
 }
 
-export default notesReducer;
+export default notesReducer; */
 
 /* case DELETE_NOTE:
     let newState = state.filter(item => item.id !==action.id)

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firebase } from "../firebase/config";
+import firebase from "../firebase/config";
 import { Button } from "react-native-elements";
 import { FlatList, Text, View, StyleSheet } from "react-native";
 

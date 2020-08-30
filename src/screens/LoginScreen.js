@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { firebase } from "../firebase/config";
+import firebase from "../firebase/config";
 import { setUser } from "../redux/actions/userActions";
 
 import {

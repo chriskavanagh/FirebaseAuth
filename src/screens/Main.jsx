@@ -1,12 +1,12 @@
 import "react-native-gesture-handler";
-import store from "../redux/store";
+//import store from "../redux/store";
 import { decode, encode } from "base-64";
 import NoteStack from "../Routes/NoteStack";
-import { firebase } from "../firebase/config";
+import firebase from "../firebase/config";
 import React, { useEffect, useState } from "react";
-import { Provider as StoreProvider, useDispatch } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
-import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import { Provider as StoreProvider, useDispatch } from "react-redux";
+//import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 //import { setUser } from "./src/redux/actions/userActions";
 //import { useDispatch } from "react-redux";
 
@@ -18,7 +18,7 @@ if (!global.atob) {
   global.atob = decode;
 }
 
-const theme = {
+/* const theme = {
   ...DefaultTheme,
   roundness: 2,
   colors: {
@@ -26,7 +26,7 @@ const theme = {
     primary: "#3498db",
     accent: "#f1c40f",
   },
-};
+}; */
 
 //export const UserContext = React.createContext({});
 
@@ -64,12 +64,8 @@ export default function App() {
     return <></>;
   }
   return (
-    <StoreProvider store={store}>
-      <PaperProvider theme={DefaultTheme}>
-        <NavigationContainer>
-          <NoteStack />
-        </NavigationContainer>
-      </PaperProvider>
-    </StoreProvider>
+    <NavigationContainer>
+      <NoteStack />
+    </NavigationContainer>
   );
 }

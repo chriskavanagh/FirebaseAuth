@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import { firebase } from "../firebase/config";
+import firebase from "../firebase/config";
 import { Button } from "react-native-elements";
 import { TextInput } from "react-native-paper";
 import { StyleSheet, View, Text } from "react-native";
