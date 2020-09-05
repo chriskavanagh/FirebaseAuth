@@ -3,11 +3,18 @@ import { Zocial } from "@expo/vector-icons";
 import HomeImage from "../components/HomeImage";
 import HomeButton from "../components/HomeButton";
 import EStyleSheet from "react-native-extended-stylesheet";
-import { Text, View, TouchableOpacity, SafeAreaView } from "react-native";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
 import { useSelector } from "react-redux";
 import { isLoaded } from "react-redux-firebase";
+import { Card, Button, Icon } from "react-native-elements";
 
-function MyButton({ navigation }) {
+function MyButton() {
   return (
     <View style={styles.mybuttonView}>
       <TouchableOpacity
@@ -44,15 +51,22 @@ export default function HomePage({ navigation }) {
   const auth = useSelector((state) => state.firebase.auth);
   console.log(auth.email);
   return (
-    <SafeAreaView style={{ height: "100%", backgroundColor: "#303030" }}>
-      <HomeImage />
-      <MyButton />
-      <View style={styles.imgContainer}>
-        <Text style={styles.titleTxt}>Chinese/Japanese Cuisine</Text>
-        <Text style={styles.txt}>Saki, Beer, Wine, Mixed Drinks</Text>
-        <Text style={styles.txt}>Sushi Bar {auth.email}</Text>
-        <HomeButton />
-      </View>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "#303030",
+      }}
+    >
+      <ScrollView>
+        <HomeImage />
+        <MyButton />
+        <View style={styles.imgContainer}>
+          <Text style={styles.titleTxt}>Chinese/Japanese Cuisine</Text>
+          <Text style={styles.txt}>Saki, Beer, Wine, Mixed Drinks</Text>
+          <Text style={styles.txt}>Sushi Bar</Text>
+          <HomeButton />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -65,7 +79,7 @@ const styles = EStyleSheet.create({
   },
   titleTxt: {
     color: "white",
-    fontSize: 20,
+    fontSize: 21,
     fontFamily: "nunito-bold",
     fontWeight: "bold",
     marginBottom: 5,
@@ -79,12 +93,13 @@ const styles = EStyleSheet.create({
     marginBottom: 10,
   },
   imgContainer: {
-    padding: 20,
+    padding: 40,
     borderRadius: 15,
     textAlign: "center",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 40,
   },
 
   iconStyle: {

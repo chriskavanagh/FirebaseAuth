@@ -7,17 +7,12 @@ export default () => {
   return (
     <View
       style={{
-        height: "50%",
+        height: "150%",
       }}
     >
       <ImageBackground source={Pic8} style={styles.container}>
         <View style={styles.overlay} />
-        <View style={styles.top}>
-          {/* <Text style={styles.txt}>Szechuans Restaurant</Text> 
-          <Text style={styles.sub}>Chinese/Japanese Cuisine</Text>
-          <Text style={styles.sub2}>Saki, Beer, Wine, Mixed Drinks</Text>
-          <Text style={styles.sub2}>Sushi Bar</Text> */}
-        </View>
+        <View style={styles.top}></View>
       </ImageBackground>
     </View>
   );
