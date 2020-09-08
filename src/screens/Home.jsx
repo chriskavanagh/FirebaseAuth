@@ -6,13 +6,15 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import {
   Text,
   View,
+  Image,
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
 } from "react-native";
 import { useSelector } from "react-redux";
 import { isLoaded } from "react-redux-firebase";
-import { Card, Button, Icon } from "react-native-elements";
+import { Card, Button, Icon, Divider } from "react-native-elements";
+import sushi from "../../assets/sushi.jpg";
 
 function MyButton() {
   return (
@@ -60,11 +62,15 @@ export default function HomePage({ navigation }) {
       <ScrollView>
         <HomeImage />
         <MyButton />
+
         <View style={styles.imgContainer}>
           <Text style={styles.titleTxt}>Chinese/Japanese Cuisine</Text>
           <Text style={styles.txt}>Saki, Beer, Wine, Mixed Drinks</Text>
           <Text style={styles.txt}>Sushi Bar</Text>
           <HomeButton />
+        </View>
+        <View>
+          {/* <Card title="SUSHI" image={require("../../assets/sushi.jpg")}></Card> */}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -93,13 +99,13 @@ const styles = EStyleSheet.create({
     marginBottom: 10,
   },
   imgContainer: {
-    padding: 40,
+    padding: 10,
     borderRadius: 15,
     textAlign: "center",
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 40,
+    marginTop: 10,
   },
 
   iconStyle: {

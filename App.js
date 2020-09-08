@@ -36,12 +36,13 @@ const rrfProps = {
 EStyleSheet.build({
   // always call EStyleSheet.build() even if you don't use global variables!
   $textColor: "#0275d8",
-  $fontFamily: "nunito-bold",
+  //$fontFamily: "nunito-bold",
   $padding: 24,
   $fontSize: 18,
 });
 
 export default function App() {
+  console.disableYellowBox = true;
   return (
     <StoreProvider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import MenuModal from "../components/MenuModal";
 import FilterLink from "../components/FilterLink";
 import { useSelector, useDispatch } from "react-redux";
-import { ListItem } from "react-native-elements";
+import { ListItem, Icon } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
-import { Icon } from "react-native-elements";
+
 import {
   StyleSheet,
   View,
@@ -25,6 +25,7 @@ import {
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
+  console.log(myState);
   const user = useSelector((state) => state.userReducer.user);
   //const all = useSelector(allSelector);
   //const soup = useSelector(soupSelector);

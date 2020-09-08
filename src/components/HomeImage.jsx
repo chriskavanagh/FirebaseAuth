@@ -1,13 +1,15 @@
 import React from "react";
 import Pic8 from "../../assets/pics/pic8.jpg";
-import { View, ImageBackground } from "react-native";
+import { View, ImageBackground, Dimensions } from "react-native";
 import EStyleSheet, { absoluteFill } from "react-native-extended-stylesheet";
 
 export default () => {
+  const windowHeight = Dimensions.get("window").height;
+  const picHeight = windowHeight / 2.7;
   return (
     <View
       style={{
-        height: "150%",
+        height: picHeight,
       }}
     >
       <ImageBackground source={Pic8} style={styles.container}>
@@ -38,26 +40,5 @@ const styles = EStyleSheet.create({
     position: "absolute",
     top: 85,
     right: 49,
-  },
-  txt: {
-    fontSize: 20,
-    fontFamily: "rocksalt-regular",
-    color: "white",
-    zIndex: 3000,
-    textAlign: "center",
-  },
-  sub: {
-    fontSize: 14,
-    fontFamily: "rocksalt-regular",
-    color: "white",
-    zIndex: 3,
-    textAlign: "center",
-  },
-  sub2: {
-    fontSize: 14,
-    fontFamily: "rocksalt-regular",
-    color: "white",
-    zIndex: 3,
-    textAlign: "center",
   },
 });
