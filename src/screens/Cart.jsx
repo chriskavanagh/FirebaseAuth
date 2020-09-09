@@ -19,7 +19,7 @@ export default function Cart() {
   //console.log(cart);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#303030" }}>
       <FlatList
         data={cart}
         keyExtractor={(item) => item.id.toString()}

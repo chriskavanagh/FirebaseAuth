@@ -5,7 +5,7 @@ import EStyleSheet, { absoluteFill } from "react-native-extended-stylesheet";
 
 export default () => {
   const windowHeight = Dimensions.get("window").height;
-  const picHeight = windowHeight / 2.7;
+  const picHeight = windowHeight / 2.9;
   return (
     <View
       style={{

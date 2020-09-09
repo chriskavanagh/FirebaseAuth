@@ -62,9 +62,10 @@ export default function HomePage({ navigation }) {
       <ScrollView>
         <HomeImage />
         <MyButton />
-
         <View style={styles.imgContainer}>
           <Text style={styles.titleTxt}>Chinese/Japanese Cuisine</Text>
+          <Text style={styles.txt}>5207 Bernard Dr</Text>
+          <Text style={styles.txt}>Roanoke, VA 24018</Text>
           <Text style={styles.txt}>Saki, Beer, Wine, Mixed Drinks</Text>
           <Text style={styles.txt}>Sushi Bar</Text>
           <HomeButton />

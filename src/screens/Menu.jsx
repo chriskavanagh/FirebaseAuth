@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import MenuModal from "../components/MenuModal";
 import FilterLink from "../components/FilterLink";
 import { useSelector, useDispatch } from "react-redux";
-import { ListItem, Icon } from "react-native-elements";
+import { ListItem } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
-
+import { Icon } from "react-native-elements";
 import {
   StyleSheet,
   View,
@@ -25,7 +25,6 @@ import {
 
 export default function Menu({ navigation }) {
   const myState = useSelector((state) => state.menuReducer.items);
-  console.log(myState);
   const user = useSelector((state) => state.userReducer.user);
   //const all = useSelector(allSelector);
   //const soup = useSelector(soupSelector);
@@ -102,23 +101,24 @@ export default function Menu({ navigation }) {
         data={myState}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => passData(item)}>
-            <ListItem
-              title={item.dish}
-              titleStyle={{ fontWeight: "700" }}
-              subtitle={`$${item.price.toFixed(2)}`}
-              subtitleStyle={{ color: "black" }}
-              bottomDivider
-              chevron={{ color: "#580000" }}
-              leftIcon={
-                <Icon
-                  name="cart-plus"
-                  type="font-awesome-5"
-                  color="#580000"
-                  size={24}
-                  containerStyle={{ marginRight: 3 }}
-                />
-              }
-            />
+            <ListItem bottomDivider>
+              <Icon
+                name="cart-plus"
+                type="font-awesome-5"
+                color="#580000"
+                size={26}
+                containerStyle={{ marginRight: 3 }}
+              />
+              <ListItem.Content>
+                <ListItem.Title style={{ fontWeight: "700" }}>
+                  {item.dish}
+                </ListItem.Title>
+                <ListItem.Subtitle
+                  style={{ color: "black" }}
+                >{`$${item.price.toFixed(2)}`}</ListItem.Subtitle>
+              </ListItem.Content>
+              <ListItem.Chevron />
+            </ListItem>
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id.toString()}
