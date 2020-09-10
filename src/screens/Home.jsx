@@ -6,15 +6,21 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import {
   Text,
   View,
-  Image,
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import { useSelector } from "react-redux";
-import { isLoaded } from "react-redux-firebase";
+//import { useSelector } from "react-redux";
+//import { isLoaded } from "react-redux-firebase";
 import { Card, Button, Icon, Divider } from "react-native-elements";
-import sushi from "../../assets/sushi.jpg";
+//import sushi from "../../assets/sushi.jpg";
+import { useSelector } from "react-redux";
+import {
+  useFirebaseConnect,
+  isLoaded,
+  isEmpty,
+  useFirestoreConnect,
+} from "react-redux-firebase";
 
 function MyButton() {
   return (
@@ -50,6 +56,10 @@ function MyButton() {
 }
 
 export default function HomePage({ navigation }) {
+  useFirestoreConnect(["menu"]);
+
+  const menu = useSelector((state) => state.firestore.ordered.menu);
+  console.log(menu);
   const auth = useSelector((state) => state.firebase.auth);
   console.log(auth.email);
   return (
@@ -70,8 +80,14 @@ export default function HomePage({ navigation }) {
           <Text style={styles.txt}>Sushi Bar</Text>
           <HomeButton />
         </View>
-        <View>
-          {/* <Card title="SUSHI" image={require("../../assets/sushi.jpg")}></Card> */}
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <Divider style={{ backgroundColor: "gray", marginVertical: 10 }} />
+          <Card containerStyle={{ width: "75%", backgroundColor: "#303030" }}>
+            <Card.Title style={{ color: "white" }}>Sushi</Card.Title>
+            {/* <Card.Divider /> */}
+            <Card.Image source={require("../../assets/sushi.jpg")}></Card.Image>
+          </Card>
+          <Divider style={{ backgroundColor: "gray", marginVertical: 10 }} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -79,25 +95,21 @@ export default function HomePage({ navigation }) {
 }
 
 const styles = EStyleSheet.create({
-  headerImage: {
-    width: 90,
-    height: 90,
-    padding: 2,
-  },
   titleTxt: {
-    color: "white",
+    color: "#F5F5F5",
     fontSize: 21,
     fontFamily: "nunito-bold",
-    fontWeight: "bold",
-    marginBottom: 5,
+    //fontWeight: "bold",
+    marginBottom: 8,
+    marginTop: -8,
   },
   txt: {
-    color: "white",
+    color: "#c4c4c4",
     fontSize: 16,
-    fontFamily: "nunito-bold",
-    fontWeight: "bold",
+    fontFamily: "nunito-italic",
+    //fontWeight: "bold",
     marginTop: 0,
-    marginBottom: 10,
+    marginBottom: 8,
   },
   imgContainer: {
     padding: 10,
@@ -107,11 +119,6 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 10,
-  },
-
-  iconStyle: {
-    right: 3,
-    position: "relative",
   },
 
   mybuttonView: {

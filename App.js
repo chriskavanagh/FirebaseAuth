@@ -1,5 +1,7 @@
 import "react-native-gesture-handler";
 import React from "react";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
 import Main from "./src/screens/Main";
 import { Provider as StoreProvider } from "react-redux";
 import EStyleSheet from "react-native-extended-stylesheet";
@@ -9,7 +11,6 @@ import rootReducer from "./src/redux/reducers/rootReducer";
 import { createStore, applyMiddleware, compose } from "redux";
 import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 import { createFirestoreInstance, getFirestore } from "redux-firestore";
-//import rrConfig from "./src/firebase/config";
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -31,25 +32,45 @@ const rrfProps = {
   firebase,
   config: rrfConfig,
   dispatch: store.dispatch,
+  createFirestoreInstance,
+};
+
+//firebase.firestore(); // put in firebase/config
+
+const loadFonts = () => {
+  return Font.loadAsync({
+    "nunito-bold": require("./assets/fonts/Nunito-Bold.ttf"),
+    "nunito-italic": require("./assets/fonts/Nunito-Italic.ttf"),
+  });
 };
 
 EStyleSheet.build({
   // always call EStyleSheet.build() even if you don't use global variables!
   $textColor: "#0275d8",
-  //$fontFamily: "nunito-bold",
+  $fontFamily: "nunito-bold",
   $padding: 24,
   $fontSize: 18,
 });
 
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = React.useState(false);
   console.disableYellowBox = true;
-  return (
-    <StoreProvider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <Main />
-      </ReactReduxFirebaseProvider>
-    </StoreProvider>
-  );
+  if (fontsLoaded) {
+    return (
+      <StoreProvider store={store}>
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          <Main />
+        </ReactReduxFirebaseProvider>
+      </StoreProvider>
+    );
+  } else {
+    return (
+      <AppLoading
+        startAsync={loadFonts}
+        onFinish={() => setFontsLoaded(true)}
+      />
+    );
+  }
 }
 /* return (
     <NavigationContainer>
