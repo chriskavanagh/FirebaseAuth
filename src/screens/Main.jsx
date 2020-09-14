@@ -5,7 +5,7 @@ import NoteStack from "../Routes/NoteStack";
 import firebase from "../firebase/config";
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { Provider as StoreProvider, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 //import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 //import { setUser } from "./src/redux/actions/userActions";
 //import { useDispatch } from "react-redux";
@@ -30,7 +30,7 @@ if (!global.atob) {
 
 //export const UserContext = React.createContext({});
 
-export default function App() {
+export default function Main() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const dispatch = useDispatch();

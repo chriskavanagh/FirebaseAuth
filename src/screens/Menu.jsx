@@ -56,7 +56,7 @@ export default function Menu({ navigation }) {
         <AntDesign
           name="swap"
           size={24}
-          color="black"
+          color="white"
           style={{ marginTop: 1, marginLeft: 5 }}
         />
 
@@ -97,32 +97,37 @@ export default function Menu({ navigation }) {
           </FilterLink>
         </ScrollView>
       </View>
-      <FlatList
-        data={myState}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => passData(item)}>
-            <ListItem bottomDivider>
-              <Icon
-                name="cart-plus"
-                type="font-awesome-5"
-                color="#580000"
-                size={26}
-                containerStyle={{ marginRight: 3 }}
-              />
-              <ListItem.Content>
-                <ListItem.Title style={{ fontWeight: "700" }}>
-                  {item.dish}
-                </ListItem.Title>
-                <ListItem.Subtitle
-                  style={{ color: "black" }}
-                >{`$${item.price.toFixed(2)}`}</ListItem.Subtitle>
-              </ListItem.Content>
-              <ListItem.Chevron />
-            </ListItem>
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      <View>
+        <FlatList
+          data={myState}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => passData(item)}>
+              <ListItem
+                containerStyle={{ backgroundColor: "#303030" }}
+                bottomDivider
+              >
+                <Icon
+                  name="cart-plus"
+                  type="font-awesome-5"
+                  color="#FF7F50"
+                  size={26}
+                  containerStyle={{ marginRight: 3 }}
+                />
+                <ListItem.Content>
+                  <ListItem.Title style={{ fontWeight: "700", color: "white" }}>
+                    {item.dish}
+                  </ListItem.Title>
+                  <ListItem.Subtitle
+                    style={{ color: "white" }}
+                  >{`$${item.price.toFixed(2)}`}</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+              </ListItem>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </View>
 
       {/* <Button
         style={styles.btn}
@@ -139,6 +144,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 10,
     paddingVertical: 10,
+    backgroundColor: "#303030",
   },
   subContainer: {
     flexDirection: "row",

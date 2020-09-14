@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontStyle: "italic",
+    color: "#fff",
   },
 });

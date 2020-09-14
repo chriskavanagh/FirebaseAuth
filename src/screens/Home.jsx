@@ -21,6 +21,7 @@ import {
   isEmpty,
   useFirestoreConnect,
 } from "react-redux-firebase";
+import firebase from "../firebase/config";
 
 function MyButton() {
   return (
@@ -56,12 +57,15 @@ function MyButton() {
 }
 
 export default function HomePage({ navigation }) {
-  useFirestoreConnect(["menu"]);
+  useFirestoreConnect(["menu"]); //hooks into Firestore(menu) from react-redux
 
-  const menu = useSelector((state) => state.firestore.ordered.menu);
+  const menu = useSelector((state) => state.firestore.ordered.menu); //react-redux Firebase Firestore
   console.log(menu);
-  const auth = useSelector((state) => state.firebase.auth);
-  console.log(auth.email);
+  const auth = useSelector((state) => state.firebase.auth); // react-redux Firebase
+  console.log(`I'm from useSelector state.firebase.auth ${auth.email}`);
+  const currentUser = firebase.auth().currentUser; // firebase config auth
+  const user = JSON.stringify(currentUser);
+  console.log(`From firebase.auth().currentUser ${user.email}`);
   return (
     <SafeAreaView
       style={{
@@ -97,6 +101,7 @@ export default function HomePage({ navigation }) {
 const styles = EStyleSheet.create({
   titleTxt: {
     color: "#F5F5F5",
+
     fontSize: 21,
     fontFamily: "nunito-bold",
     //fontWeight: "bold",
@@ -105,6 +110,7 @@ const styles = EStyleSheet.create({
   },
   txt: {
     color: "#c4c4c4",
+
     fontSize: 16,
     fontFamily: "nunito-italic",
     //fontWeight: "bold",

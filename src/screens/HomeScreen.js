@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import firebase from "../firebase/config";
 import { Button } from "react-native-elements";
 import { FlatList, Text, View, StyleSheet } from "react-native";
+import * as admin from "firebase-admin";
+import moment from "moment";
+
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+  databaseURL: "https://reactnativeauth-64965.firebaseio.com",
+});
 
 export default function HomeScreen({ route }) {
   //const [entityText, setEntityText] = useState("");
@@ -10,7 +17,7 @@ export default function HomeScreen({ route }) {
 
   const { user, id } = route.params;
 
-  const getData = async () => {
+  /* const getData = async () => {
     const db = firebase.firestore();
     const cartRef = db.collection("menu");
     const snapshot = await cartRef.get();
@@ -22,6 +29,30 @@ export default function HomeScreen({ route }) {
       console.log(doc.id, "=>", doc.data());
       setData(newEntities);
     });
+  }; */
+
+  const getData = () => {
+    const today = moment().format("MM/DD/YYYY HH:mm:ss");
+    firebase
+      .firestore()
+      .collection("mail")
+      .add({
+        to: [
+          "chriskkavanagh@gmail.com",
+          "ckava3@gmail.com",
+          "chriskavanagh@cox.net",
+        ],
+        message: {
+          subject: "Online Order From Szechuans Restaurant",
+
+          html: `Hello Chris, Your Order ${today}
+                <pre>
+                1 Gen Chicken
+                1 Sesame Chicken
+                2 Egg Rolls
+                </pre>`,
+        },
+      });
   };
 
   return (

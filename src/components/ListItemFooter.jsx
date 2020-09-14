@@ -23,18 +23,23 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   txt: {
-    fontStyle: "italic",
     fontSize: 19,
     marginTop: 20,
+    color: "#F5F5F5",
+    fontFamily: "nunito-italic",
   },
   tax: {
-    fontStyle: "italic",
     fontSize: 19,
     marginBottom: 5,
     borderBottomWidth: 1,
+    borderBottomColor: "#FF7F50",
+    color: "#FFFAF0",
+    fontFamily: "nunito-italic",
   },
   total: {
     fontSize: 20,
-    fontWeight: "bold",
+    //fontWeight: "bold",
+    color: "#fff",
+    fontFamily: "nunito-bold",
   },
 });

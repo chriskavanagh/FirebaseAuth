@@ -8,7 +8,7 @@ export default function FilterLink({ dispatch, action, children }) {
     <TouchableOpacity style={{ marginHorizontal: 3, marginBottom: 15 }}>
       <Button
         buttonStyle={{
-          borderColor: "#580000",
+          borderColor: "white",
           backgroundColor: "#D8D8D8",
           borderWidth: 3,
           width: 120,
@@ -17,7 +17,7 @@ export default function FilterLink({ dispatch, action, children }) {
         }}
         titleStyle={{ marginLeft: 5, color: "black", fontWeight: "bold" }}
         style={styles.subText}
-        icon={<Icon name="search" size={18} color="#580000" />}
+        icon={<Icon name="search" size={18} color="#f96332" />}
         title={children}
         type="outline"
         onPress={() => {

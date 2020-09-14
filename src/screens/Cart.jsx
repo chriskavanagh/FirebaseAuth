@@ -12,11 +12,7 @@ import ListItemFooter from "../components/ListItemFooter";
 
 export default function Cart() {
   const [quantity, setQuantity] = React.useState(1);
-  //console.log(quantity);
-  //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
-  //const total = useSelector((state) => state.cartReducer.total);
-  //console.log(cart);
 
   return (
     <View style={{ flex: 1, backgroundColor: "#303030" }}>
@@ -40,6 +36,8 @@ export default function Cart() {
         <Button
           title="Checkout"
           type="outline"
+          buttonStyle={{ borderColor: "#FF7F50" }}
+          titleStyle={{ color: "#fff" }}
           onPress={() => console.log("checkout button")}
         />
       </View>

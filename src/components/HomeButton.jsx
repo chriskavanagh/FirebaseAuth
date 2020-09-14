@@ -19,7 +19,7 @@ export default (props) => {
       title="Order Online!"
       type="outline"
       buttonStyle={{
-        borderColor: "gray",
+        borderColor: "#606060",
         borderWidth: 4,
         width: 380,
         marginTop: 16,
