@@ -3,6 +3,7 @@ import AuthStack from "./AuthStack";
 import RootStack from "./RootStack";
 import FoodStack from "./FoodStack";
 import CartStack from "./CartStack";
+import CheckoutStack from "./CheckoutStack";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -37,7 +38,7 @@ export default () => {
         options={{
           tabBarLabel: "User",
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-call" color={color} size={25} />
+            <Icon name="ios-person" color={color} size={25} />
           ),
         }}
       />
@@ -60,6 +61,16 @@ export default () => {
           tabBarLabel: "Cart",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-cart" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Checkout"
+        component={CheckoutStack}
+        options={{
+          tabBarLabel: "Checkout",
+          tabBarIcon: ({ color }) => (
+            <Icon name="ios-card" color={color} size={25} />
           ),
         }}
       />

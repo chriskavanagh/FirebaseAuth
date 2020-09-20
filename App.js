@@ -5,14 +5,15 @@ import { AppLoading } from "expo";
 import Main from "./src/screens/Main";
 import { Provider as StoreProvider } from "react-redux";
 import EStyleSheet from "react-native-extended-stylesheet";
-import thunk from "redux-thunk";
+//import thunk from "redux-thunk";
 //import firebase from "../firebase/config";
-import rootReducer from "./src/redux/reducers/rootReducer";
-import { createStore, applyMiddleware, compose } from "redux";
+//import rootReducer from "./src/redux/reducers/rootReducer";
+//import { createStore, applyMiddleware, compose } from "redux";
 import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 import { createFirestoreInstance, getFirestore } from "redux-firestore";
 import firebase from "firebase/app";
 import "firebase/auth";
+import store from "./src/redux/store";
 
 // react-redux-firebase config
 const rrfConfig = {
@@ -21,12 +22,12 @@ const rrfConfig = {
   // enableClaims: true // Get custom claims along with the profile
 };
 
-const middlewares = [thunk.withExtraArgument(getFirebase)];
+/* const middlewares = [thunk.withExtraArgument(getFirebase)];
 
 const store = createStore(
   rootReducer,
   compose(applyMiddleware(...middlewares))
-);
+); */
 
 const rrfProps = {
   firebase,

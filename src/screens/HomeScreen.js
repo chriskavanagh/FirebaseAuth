@@ -1,14 +1,8 @@
 import React, { useState } from "react";
+import moment from "moment";
 import firebase from "../firebase/config";
 import { Button } from "react-native-elements";
 import { FlatList, Text, View, StyleSheet } from "react-native";
-import * as admin from "firebase-admin";
-import moment from "moment";
-
-admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL: "https://reactnativeauth-64965.firebaseio.com",
-});
 
 export default function HomeScreen({ route }) {
   //const [entityText, setEntityText] = useState("");
@@ -43,7 +37,7 @@ export default function HomeScreen({ route }) {
           "chriskavanagh@cox.net",
         ],
         message: {
-          subject: "Online Order From Szechuans Restaurant",
+          subject: "Szechuans Restaurant Online Order",
 
           html: `Hello Chris, Your Order ${today}
                 <pre>
