@@ -53,6 +53,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sharp-cli": "^1.14.1",
+    "tipsi-stripe": "^7.5.3",
     "yup": "^0.29.1"
   },
   "devDependencies": {
