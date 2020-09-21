@@ -1,11 +1,9 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "expo start --web"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.2.1",
@@ -24,14 +22,16 @@
     "expo-payments-stripe": "~8.2.1",
     "expo-splash-screen": "~0.3.1",
     "expo-status-bar": "^1.0.0",
+    "expo-updates": "~0.2.10",
     "firebase": "^7.15.5",
+    "firebase-tools": "^8.10.0",
     "formik": "^2.1.4",
     "immer": "^7.0.8",
     "lodash.remove": "^4.7.0",
     "moment": "^2.28.0",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
+    "react-native": "~0.62.2",
     "react-native-credit-card-input": "^0.4.1",
     "react-native-elements": "^2.3.2",
     "react-native-extended-stylesheet": "^0.12.0",
@@ -44,8 +44,10 @@
     "react-native-screens": "~2.9.0",
     "react-native-svg": "12.1.0",
     "react-native-tab-view": "^2.14.4",
+    "react-native-unimodules": "~0.10.1",
     "react-native-vector-icons": "^7.0.0",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "^10.9.0",
     "react-redux": "^7.2.0",
     "react-redux-firebase": "^3.0.0",
     "redux": "^4.0.5",
@@ -58,7 +60,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "babel-jest": "~25.2.6",
+    "babel-preset-expo": "~8.1.0",
+    "jest": "~25.2.6",
+    "react-test-renderer": "~16.11.0"
   },
-  "private": true
+  "private": true,
+  "name": "FirebaseAuth",
+  "version": "1.0.0"
 }
