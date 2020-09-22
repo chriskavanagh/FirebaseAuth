@@ -1,8 +1,8 @@
 import "react-native-gesture-handler";
 import store from "../redux/store";
 import { decode, encode } from "base-64";
-import NoteStack from "../Routes/NoteStack";
 import { firebase } from "../firebase/config";
+import TabNavigator from "../Routes/TabNavigator";
 import React, { useEffect, useState } from "react";
 import { Provider as StoreProvider, useDispatch } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
@@ -67,7 +67,7 @@ export default function App() {
     <StoreProvider store={store}>
       <PaperProvider theme={DefaultTheme}>
         <NavigationContainer>
-          <NoteStack />
+          <TabNavigator />
         </NavigationContainer>
       </PaperProvider>
     </StoreProvider>

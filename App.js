@@ -4,6 +4,8 @@ import Main from "./src/screens/Main";
 import store from "./src/redux/store";
 import { Provider as StoreProvider } from "react-redux";
 import EStyleSheet from "react-native-extended-stylesheet";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
 
 EStyleSheet.build({
   // always call EStyleSheet.build() even if you don't use global variables!
@@ -13,12 +15,30 @@ EStyleSheet.build({
   $fontSize: 18,
 });
 
+const loadFonts = () => {
+  return Font.loadAsync({
+    "nunito-bold": require("./assets/fonts/Nunito-Bold.ttf"),
+    "nunito-italic": require("./assets/fonts/Nunito-Italic.ttf"),
+  });
+};
+
 export default function App() {
-  return (
-    <StoreProvider store={store}>
-      <Main />
-    </StoreProvider>
-  );
+  console.disableYellowBox = true;
+  const [fontsLoaded, setFontsLoaded] = React.useState(false);
+  if (fontsLoaded) {
+    return (
+      <StoreProvider store={store}>
+        <Main />
+      </StoreProvider>
+    );
+  } else {
+    return (
+      <AppLoading
+        startAsync={loadFonts}
+        onFinish={() => setFontsLoaded(true)}
+      />
+    );
+  }
 }
 /* return (
     <NavigationContainer>

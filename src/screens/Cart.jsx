@@ -10,7 +10,7 @@ import ListItemDelete from "../components/ListItemDelete";
 //import { removeItem } from "../redux/actions/cartActions";
 import ListItemFooter from "../components/ListItemFooter";
 
-export default function Cart() {
+export default function Cart({ navigation }) {
   const [quantity, setQuantity] = React.useState(1);
   //console.log(quantity);
   //const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function Cart() {
         <Button
           title="Checkout"
           type="outline"
-          onPress={() => console.log("checkout button")}
+          onPress={() => navigation.navigate("Checkout", { items: cart })}
         />
       </View>
     </View>
