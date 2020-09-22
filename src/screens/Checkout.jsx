@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
-import { StyleSheet, Text, View } from "react-native";
-//import { CreditCardInput } from "react-native-credit-card-input";
-//import StripeCheckout from "expo-stripe-checkout";
+import React, { PureComponent } from "react";
+import { View, Text, StyleSheet } from "react-native";
+//import stripe from "tipsi-stripe";
+//import Button from "../components/Button";
+//import testID from "../utils/testID";
 
 export default function Checkout() {
   return (
