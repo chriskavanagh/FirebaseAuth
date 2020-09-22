@@ -80,7 +80,7 @@ export default function MenuModal(props) {
               onPress={() => myaddItem(props.item.id, quantity, notes)}
             />
 
-            <Snackbar
+            {/* <Snackbar
               visible={visible}
               duration={2000}
               onDismiss={onDismissSnackBar}
@@ -92,7 +92,7 @@ export default function MenuModal(props) {
               }}
             >
               {props.item.dish} added to Cart!
-            </Snackbar>
+            </Snackbar> */}
           </View>
         </View>
       </ScrollView>
